@@ -1,7 +1,5 @@
-import { keyframes, type Keyframes } from 'styled-components'
-
 export interface Animation {
-  keyframes: Keyframes
+  keyframes: string
   duration: number
   timing: string
   fill: string
@@ -96,7 +94,7 @@ export type AnimationName =
 
 export const animations: Record<AnimationName, Animation> = {
   moveToLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateX(-100%) rotateZ(0.01deg); }
     `,
@@ -105,7 +103,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from {  transform: translateX(-100%) rotateZ(0.01deg); }
     `,
     duration: 600,
@@ -113,7 +111,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveToRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateX(100%) rotateZ(0.01deg); }
     `,
@@ -122,7 +120,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateX(100%) rotateZ(0.01deg); }
     `,
     duration: 600,
@@ -130,7 +128,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveToTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateY(-100%) rotateZ(0.01deg); }
     `,
@@ -139,7 +137,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateY(-100%) rotateZ(0.01deg); }
     `,
     duration: 600,
@@ -147,7 +145,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveToBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateY(100%) rotateZ(0.01deg); }
     `,
@@ -156,7 +154,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateY(100%) rotateZ(0.01deg); }
     `,
     duration: 600,
@@ -164,7 +162,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   fade: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; }
     `,
@@ -173,7 +171,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveToLeftFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateX(-100%) rotateZ(0.01deg); }
     `,
@@ -182,7 +180,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromLeftFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3;  transform: translateX(-100%) rotateZ(0.01deg); }
     `,
     duration: 700,
@@ -190,7 +188,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveToRightFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3;  transform: translateX(100%) rotateZ(0.01deg); }
     `,
@@ -199,7 +197,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromRightFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateX(100%) rotateZ(0.01deg); }
     `,
     duration: 700,
@@ -207,7 +205,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveToTopFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateY(-100%) rotateZ(0.01deg); }
     `,
@@ -216,7 +214,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromTopFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateY(-100%) rotateZ(0.01deg); }
     `,
     duration: 700,
@@ -224,7 +222,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveToBottomFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3;  transform: translateY(100%) rotateZ(0.01deg); }
     `,
@@ -233,7 +231,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   moveFromBottomFade: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateY(100%) rotateZ(0.01deg); }
     `,
     duration: 700,
@@ -241,7 +239,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   scaleDown: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: scale(0.8); }
     `,
@@ -250,7 +248,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   scaleUp: {
-    keyframes: keyframes`
+    keyframes: `
 	    from { opacity: 0;  transform: scale(0.8); }
     `,
     duration: 700,
@@ -258,7 +256,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   scaleUpDown: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: scale(1.2); }
     `,
     duration: 500,
@@ -266,7 +264,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   scaleDownUp: {
-    keyframes: keyframes`
+    keyframes: `
 	    from { }
 	    to { opacity: 0; transform: scale(1.2); }
     `,
@@ -275,7 +273,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   scaleDownCenter: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: scale(0.7); }
     `,
@@ -284,7 +282,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   scaleUpCenter: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0;  transform: scale(0.7); }
     `,
     duration: 400,
@@ -292,7 +290,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   rotateRightSideFirst: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       40% { transform: rotateY(15deg); opacity: 0.8; animation-timing-function: ease-out; }
       100% { transform: scale(0.8) translateZ(-200px); opacity:0; }
@@ -303,7 +301,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateLeftSideFirst: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       40% { transform: rotateY(-15deg); opacity: 0.8; animation-timing-function: ease-out; }
       100% { transform: scale(0.8) translateZ(-200px); opacity:0; }
@@ -314,7 +312,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateTopSideFirst: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       40% { transform: rotateX(15deg); opacity: 0.8; animation-timing-function: ease-out; }
       100% { transform: scale(0.8) translateZ(-200px); opacity:0; }
@@ -325,7 +323,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateBottomSideFirst: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       40% { transform: rotateX(-15deg); opacity: 0.8; animation-timing-function: ease-out; }
       100% {transform: scale(0.8) translateZ(-200px); opacity:0; }
@@ -336,7 +334,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   flipOutRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2; }
     `,
@@ -346,7 +344,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   flipInLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2; }
     `,
     duration: 500,
@@ -355,7 +353,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   flipOutLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2; }
     `,
@@ -365,7 +363,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   flipInRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2; }
     `,
     duration: 500,
@@ -374,7 +372,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   flipOutTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateZ(-1000px) rotateX(90deg); opacity: 0.2; }
     `,
@@ -384,7 +382,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   flipInBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateZ(-1000px) rotateX(-90deg); opacity: 0.2; }
     `,
     duration: 500,
@@ -393,7 +391,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   flipOutBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateZ(-1000px) rotateX(-90deg); opacity: 0.2; }
     `,
@@ -403,7 +401,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   flipInTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateZ(-1000px) rotateX(90deg); opacity: 0.2; }
     `,
     duration: 500,
@@ -412,7 +410,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   rotateFall: {
-    keyframes: keyframes`
+    keyframes: `
       0% { transform: rotateZ(0deg); }
       20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
       40% { transform: rotateZ(17deg); }
@@ -425,7 +423,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 0%',
   },
   rotateOutNewspaper: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
     `,
@@ -435,7 +433,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   rotateInNewspaper: {
-    keyframes: keyframes`
+    keyframes: `
       from { transform: translateZ(-3000px) rotateZ(-360deg); opacity: 0; }
     `,
     duration: 500,
@@ -444,7 +442,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 50%',
   },
   rotatePushLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: rotateY(90deg); }
     `,
@@ -454,7 +452,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotatePushRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: rotateY(-90deg); }
     `,
@@ -464,7 +462,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotatePushTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: rotateX(-90deg); }
     `,
@@ -474,7 +472,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotatePushBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: rotateX(90deg); }
     `,
@@ -484,7 +482,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotatePullRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: rotateY(-90deg); }
     `,
     duration: 500,
@@ -493,7 +491,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotatePullLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: rotateY(90deg); }
     `,
     duration: 500,
@@ -502,7 +500,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotatePullTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: rotateX(-90deg); }
     `,
     duration: 500,
@@ -511,7 +509,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotatePullBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: rotateX(90deg); }
     `,
     duration: 500,
@@ -520,7 +518,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateFoldRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: translateX(100%) rotateY(90deg); }
     `,
@@ -530,7 +528,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateFoldLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: translateX(-100%) rotateY(-90deg); }
     `,
@@ -540,7 +538,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateFoldTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: translateY(-100%) rotateX(90deg); }
     `,
@@ -550,7 +548,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateFoldBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: translateY(100%) rotateX(-90deg); }
     `,
@@ -560,7 +558,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateUnfoldLeft: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: translateX(-100%) rotateY(-90deg); }
     `,
     duration: 700,
@@ -569,7 +567,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateUnfoldRight: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0;  transform: translateX(100%) rotateY(90deg); }
     `,
     duration: 700,
@@ -578,7 +576,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateUnfoldTop: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: translateY(-100%) rotateX(90deg); }
     `,
     duration: 700,
@@ -587,7 +585,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateUnfoldBottom: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: translateY(100%) rotateX(-90deg); }
     `,
     duration: 700,
@@ -596,7 +594,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateRoomLeftOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateX(-100%) rotateY(90deg); }
     `,
@@ -606,7 +604,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateRoomLeftIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateX(100%) rotateY(-90deg); }
     `,
     duration: 800,
@@ -615,7 +613,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateRoomRightOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateX(100%) rotateY(-90deg); }
     `,
@@ -625,7 +623,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateRoomRightIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateX(-100%) rotateY(90deg); }
     `,
     duration: 800,
@@ -634,7 +632,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateRoomTopOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateY(-100%) rotateX(-90deg); }
     `,
@@ -644,7 +642,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateRoomTopIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateY(100%) rotateX(90deg); }
     `,
     duration: 800,
@@ -653,7 +651,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateRoomBottomOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateY(100%) rotateX(90deg); }
     `,
@@ -663,7 +661,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateRoomBottomIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateY(-100%) rotateX(-90deg); }
     `,
     duration: 800,
@@ -672,7 +670,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateCubeLeftOut: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
       100% { opacity: 0.3; transform: translateX(-100%) rotateY(-90deg); }
@@ -683,7 +681,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateCubeLeftIn: {
-    keyframes: keyframes`
+    keyframes: `
       0% { opacity: 0.3; transform: translateX(100%) rotateY(90deg); }
       50% { animation-timing-function: ease-out; transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
     `,
@@ -693,7 +691,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateCubeRightOut: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       50% { animation-timing-function: ease-out; transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
       100% { opacity: 0.3; transform: translateX(100%) rotateY(90deg); }
@@ -704,7 +702,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateCubeRightIn: {
-    keyframes: keyframes`
+    keyframes: `
       0% { opacity: 0.3; transform: translateX(-100%) rotateY(-90deg); }
       50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
     `,
@@ -714,7 +712,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateCubeTopOut: {
-    keyframes: keyframes`
+    keyframes: `
       0% {}
       50% { animation-timing-function: ease-out; transform: translateY(-50%) translateZ(-200px) rotateX(45deg); }
       100% { opacity: 0.3; transform: translateY(-100%) rotateX(90deg); }
@@ -725,7 +723,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateCubeTopIn: {
-    keyframes: keyframes`
+    keyframes: `
       0% { opacity: 0.3; transform: translateY(100%) rotateX(-90deg); }
       50% { animation-timing-function: ease-out; transform: translateY(50%) translateZ(-200px) rotateX(-45deg); }
     `,
@@ -735,7 +733,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateCubeBottomOut: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       50% { animation-timing-function: ease-out; transform: translateY(50%) translateZ(-200px) rotateX(-45deg); }
       100% { opacity: 0.3; -webkit-transform: translateY(100%) rotateX(-90deg); transform: translateY(100%) rotateX(-90deg); }
@@ -746,7 +744,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateCubeBottomIn: {
-    keyframes: keyframes`
+    keyframes: `
       0% { opacity: 0.3; -webkit-transform: translateY(-100%) rotateX(90deg); transform: translateY(-100%) rotateX(90deg); }
       50% { animation-timing-function: ease-out; transform: translateY(-50%) translateZ(-200px) rotateX(45deg); }
     `,
@@ -756,7 +754,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateCarouselLeftOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateX(-150%) scale(0.4) rotateY(-65deg); }
     `,
@@ -766,7 +764,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateCarouselLeftIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateX(200%) scale(0.4) rotateY(65deg); }
     `,
     duration: 800,
@@ -775,7 +773,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateCarouselRightOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateX(200%) scale(0.4) rotateY(65deg); }
     `,
@@ -785,7 +783,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '0% 50%',
   },
   rotateCarouselRightIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateX(-200%) scale(0.4) rotateY(-65deg); }
     `,
     duration: 800,
@@ -794,7 +792,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '100% 50%',
   },
   rotateCarouselTopOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateY(-200%) scale(0.4) rotateX(65deg); }
     `,
@@ -804,7 +802,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateCarouselTopIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateY(200%) scale(0.4) rotateX(-65deg); }
     `,
     duration: 800,
@@ -813,7 +811,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateCarouselBottomOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0.3; transform: translateY(200%) scale(0.4) rotateX(-65deg); }
     `,
@@ -823,7 +821,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 0%',
   },
   rotateCarouselBottomIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0.3; transform: translateY(-200%) scale(0.4) rotateX(65deg); }
     `,
     duration: 800,
@@ -832,7 +830,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '50% 100%',
   },
   rotateSidesOut: {
-    keyframes: keyframes`
+    keyframes: `
       from { }
       to { opacity: 0; transform: translateZ(-500px) rotateY(90deg); }
     `,
@@ -842,7 +840,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '-50% 50%',
   },
   rotateSidesIn: {
-    keyframes: keyframes`
+    keyframes: `
       from { opacity: 0; transform: translateZ(-500px) rotateY(-90deg); }
     `,
     duration: 500,
@@ -851,7 +849,7 @@ export const animations: Record<AnimationName, Animation> = {
     origin: '150% 50%',
   },
   rotateSlideOut: {
-    keyframes: keyframes`
+    keyframes: `
       0% { }
       25% { opacity: 0.5; transform: translateZ(-500px); }
       75% { opacity: 0.5; transform: translateZ(-500px) translateX(-200%); }
@@ -862,7 +860,7 @@ export const animations: Record<AnimationName, Animation> = {
     fill: 'both',
   },
   rotateSlideIn: {
-    keyframes: keyframes`
+    keyframes: `
       0%, 25% { opacity: 0.5; transform: translateZ(-500px) translateX(200%); }
       75% { opacity: 0.5; transform: translateZ(-500px); }
       100% { opacity: 1; transform: translateZ(0) translateX(0); }

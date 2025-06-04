@@ -1,7 +1,3 @@
-<img alt="Abandoned" src="https://img.shields.io/badge/Abandoned-red"> <img alt="License" src="https://img.shields.io/npm/l/@steveeeie/react-page-transition" />
-
-**IMPORTANT: This project doesn't support newer versions of React or React Router and is for now considered abandoned. Please see: https://github.com/Steveeeie/react-page-transition/issues/33**
-
 # React Page Transition
 
 ⚛️💨 A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo [See Original](https://tympanus.net/Development/PageTransitions/).
@@ -25,21 +21,13 @@
 
 ### 1. Install Package
 
-`npm install @steveeeie/react-page-transition`
-
-or
-
-`yarn add @steveeeie/react-page-transition`
+`npm i @mesqueeb/react-page-transition`
 
 ---
 
-### 2. Install Dependencies
+### 2. Install Peer Dependencies
 
-`npm install react-router react-router-dom react-transition-group styled-components`
-
-or
-
-`yarn add react-router react-router-dom react-transition-group styled-components`
+`npm i react-router@^5.2.0 react-router-dom@^5.2.0`
 
 ---
 
@@ -50,15 +38,8 @@ or
 ```jsx
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import { PageTransition } from '@steveeeie/react-page-transition'
+import { PageTransition } from '@mesqueeb/react-page-transition'
 import './styles.css'
-
-const Links = () => (
-  <>
-    <Link to="/">Home</Link>
-    <Link to="/about">About</Link>
-  </>
-)
 
 const Home = (props) => <h1>Home</h1>
 
@@ -67,7 +48,8 @@ const About = (props) => <h1>About</h1>
 export default function App() {
   return (
     <BrowserRouter>
-      <Links />
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
       <Route
         render={({ location }) => {
           return (
