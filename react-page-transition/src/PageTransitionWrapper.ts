@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { TransitionStatus } from 'react-transition-group';
-import { Animation } from './animations';
+import { type TransitionStatus } from 'react-transition-group';
+import { type Animation } from './animations';
 import { createAnimationStyles } from './createAnimationStyles';
 
 interface Props {
@@ -20,9 +20,9 @@ const stateMap = {
       ${createAnimationStyles(exitAnimation)};
     `;
   }
-};
+} as const;
 
-const PageTransitionWrapper = styled.div<Props>`
+export const PageTransitionWrapper = styled.div<Props>`
   backface-visibility: hidden;
   height: 100%;
   left: 0;
@@ -34,7 +34,5 @@ const PageTransitionWrapper = styled.div<Props>`
   width: 100%;
   will-change: transform;
 
-  ${({ state }) => stateMap[state]};
+  ${({ state }) => state === 'entering' || state === 'exiting' ? stateMap[state] : undefined};
 `;
-
-export { PageTransitionWrapper };

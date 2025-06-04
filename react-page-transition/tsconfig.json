@@ -1,21 +1,35 @@
 {
   "compilerOptions": {
-    "outDir": "dist/esm",
+    // targets
     "module": "esnext",
-    "target": "es5",
-    "lib": ["es6", "dom", "es2016", "es2017"],
-    "jsx": "react",
-    "declaration": true,
     "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "target": "es2020",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "esnext"
+    ],
+    "jsx": "react-jsx",
+    // building
+    "baseUrl": ".",
+    "outDir": "dist/esm",
+    "declaration": true,
+    "noEmitOnError": true,
+    // preferences
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
+    "newLine": "lf",
     "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "allowJs": false,
+    "downlevelIteration": true,
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "@types/node"]
 }

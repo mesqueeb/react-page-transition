@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { Animation } from './animations';
+import { type Animation } from './animations';
 
-const createAnimationStyles = ({
+export const createAnimationStyles = ({
   keyframes,
   delay,
   duration,
@@ -22,5 +22,3 @@ const createAnimationStyles = ({
       z-index: 1;
     `}
 `;
-
-export { createAnimationStyles };

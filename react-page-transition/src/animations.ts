@@ -1,17 +1,100 @@
-import { keyframes, Keyframes } from 'styled-components';
-import { Property } from 'csstype';
+import { keyframes, type Keyframes } from 'styled-components';
 
-interface Animation {
+export interface Animation {
   keyframes: Keyframes;
   duration: number;
   timing: string;
-  fill: Property.Fill;
-  delay?: Property.AnimationDelay;
-  origin?: Property.TransformOrigin;
+  fill: string;
+  delay?: string;
+  origin?: string;
   onTop?: boolean;
 }
 
-const animations = {
+export type AnimationName = 
+  | 'moveToLeft'
+  | 'moveFromLeft'
+  | 'moveToRight'
+  | 'moveFromRight'
+  | 'moveToTop'
+  | 'moveFromTop'
+  | 'moveToBottom'
+  | 'moveFromBottom'
+  | 'fade'
+  | 'moveToLeftFade'
+  | 'moveFromLeftFade'
+  | 'moveToRightFade'
+  | 'moveFromRightFade'
+  | 'moveToTopFade'
+  | 'moveFromTopFade'
+  | 'moveToBottomFade'
+  | 'moveFromBottomFade'
+  | 'scaleDown'
+  | 'scaleUp'
+  | 'scaleUpDown'
+  | 'scaleDownUp'
+  | 'scaleDownCenter'
+  | 'scaleUpCenter'
+  | 'rotateRightSideFirst'
+  | 'rotateLeftSideFirst'
+  | 'rotateTopSideFirst'
+  | 'rotateBottomSideFirst'
+  | 'rotateSlideIn'
+  | 'rotateSlideOut'
+  | 'flipOutRight'
+  | 'flipInLeft'
+  | 'flipOutLeft'
+  | 'flipInRight'
+  | 'flipOutTop'
+  | 'flipInBottom'
+  | 'flipOutBottom'
+  | 'flipInTop'
+  | 'rotateFall'
+  | 'rotateOutNewspaper'
+  | 'rotateInNewspaper'
+  | 'rotatePushLeft'
+  | 'rotatePushRight'
+  | 'rotatePushTop'
+  | 'rotatePushBottom'
+  | 'rotatePullRight'
+  | 'rotatePullLeft'
+  | 'rotatePullBottom'
+  | 'rotatePullTop'
+  | 'rotateFoldLeft'
+  | 'rotateFoldRight'
+  | 'rotateFoldTop'
+  | 'rotateFoldBottom'
+  | 'rotateUnfoldLeft'
+  | 'rotateUnfoldRight'
+  | 'rotateUnfoldTop'
+  | 'rotateUnfoldBottom'
+  | 'rotateRoomLeftOut'
+  | 'rotateRoomLeftIn'
+  | 'rotateRoomRightOut'
+  | 'rotateRoomRightIn'
+  | 'rotateRoomTopOut'
+  | 'rotateRoomTopIn'
+  | 'rotateRoomBottomOut'
+  | 'rotateRoomBottomIn'
+  | 'rotateCubeLeftOut'
+  | 'rotateCubeLeftIn'
+  | 'rotateCubeRightOut'
+  | 'rotateCubeRightIn'
+  | 'rotateCubeTopOut'
+  | 'rotateCubeTopIn'
+  | 'rotateCubeBottomOut'
+  | 'rotateCubeBottomIn'
+  | 'rotateCarouselLeftOut'
+  | 'rotateCarouselLeftIn'
+  | 'rotateCarouselRightOut'
+  | 'rotateCarouselRightIn'
+  | 'rotateCarouselTopOut'
+  | 'rotateCarouselTopIn'
+  | 'rotateCarouselBottomOut'
+  | 'rotateCarouselBottomIn'
+  | 'rotateSidesOut'
+  | 'rotateSidesIn';
+
+export const animations: Record<AnimationName, Animation> = {
   moveToLeft: {
     keyframes: keyframes`
       from { }
@@ -789,5 +872,3 @@ const animations = {
     fill: 'both'
   }
 };
-
-export { animations, Animation };

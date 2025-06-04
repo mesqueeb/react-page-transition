@@ -1,15 +1,22 @@
 import React, { memo } from 'react';
 import { Transition, TransitionGroup } from 'react-transition-group';
-import { animations } from './animations';
+import { animations, type Animation } from './animations';
 import { presets } from './presets';
 import { PageTransitionGroup } from './PageTransitionGroup';
 import { PageTransitionWrapper } from './PageTransitionWrapper';
+import { type AnimationName } from './types';
+
+interface AnimationOverride {
+  name: AnimationName;
+  delay?: number;
+  onTop?: boolean;
+}
 
 interface Props {
   children: React.ReactNode;
-  enterAnimation?: string | { name: string; delay: Number; onTop: Boolean };
-  exitAnimation?: string | { name: string; delay: Number; onTop: Boolean };
-  preset: string;
+  enterAnimation?: AnimationName | AnimationOverride;
+  exitAnimation?: AnimationName | AnimationOverride;
+  preset: keyof typeof presets;
   transitionKey: string;
 }
 
@@ -21,46 +28,52 @@ function PageTransition({
   transitionKey,
   ...rest
 }: Props) {
-  const selectEnterAnimation = () => {
+  const selectEnterAnimation = (): Animation => {
     if (enterAnimationOverride) {
       if (typeof enterAnimationOverride === 'string') {
         return animations[enterAnimationOverride];
       }
+      const baseAnimation = animations[enterAnimationOverride.name];
       return {
-        ...animations[enterAnimationOverride.name],
-        delay: enterAnimationOverride.delay,
+        ...baseAnimation,
+        delay: enterAnimationOverride.delay ? `${enterAnimationOverride.delay}ms` : undefined,
         onTop: enterAnimationOverride.onTop
       };
     }
     if (preset) {
+      const presetAnimation = presets[preset].enter;
+      const baseAnimation = animations[presetAnimation.name];
       return {
-        ...animations[presets[preset].enter.name],
-        delay: presets[preset].enter.delay,
-        onTop: presets[preset].enter.onTop
+        ...baseAnimation,
+        delay: presetAnimation.delay ? `${presetAnimation.delay}ms` : undefined,
+        onTop: presetAnimation.onTop
       };
     }
-    return 'rotateSlideIn';
+    return animations.rotateSlideIn;
   };
 
-  const selectExitAnimation = () => {
+  const selectExitAnimation = (): Animation => {
     if (exitAnimationOverride) {
       if (typeof exitAnimationOverride === 'string') {
         return animations[exitAnimationOverride];
       }
+      const baseAnimation = animations[exitAnimationOverride.name];
       return {
-        ...animations[exitAnimationOverride.name],
-        delay: exitAnimationOverride.delay,
+        ...baseAnimation,
+        delay: exitAnimationOverride.delay ? `${exitAnimationOverride.delay}ms` : undefined,
         onTop: exitAnimationOverride.onTop
       };
     }
     if (preset) {
+      const presetAnimation = presets[preset].exit;
+      const baseAnimation = animations[presetAnimation.name];
       return {
-        ...animations[presets[preset].exit.name],
-        delay: presets[preset].exit.delay,
-        onTop: presets[preset].exit.onTop
+        ...baseAnimation,
+        delay: presetAnimation.delay ? `${presetAnimation.delay}ms` : undefined,
+        onTop: presetAnimation.onTop
       };
     }
-    return 'rotateSlideIn';
+    return animations.rotateSlideIn;
   };
 
   const enterAnimation = selectEnterAnimation();

@@ -1,15 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { PageTransition } from '@mesqueeb/react-page-transition';
 import './styles.css';
-
-const Links = () => (
-  <>
-    <Link to="/">Home</Link>
-    <Link to="/about">About</Link>
-  </>
-);
 
 const Home = () => <h1>Home</h1>;
 
@@ -19,7 +11,8 @@ function App() {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <Links />
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
         <Route
           render={({ location }) => {
             return (
@@ -31,7 +24,7 @@ function App() {
                   <Route exact path="/" component={Home} />
                   <Route exact path="/about" component={About} />
                 </Switch>
-              </PageTransition>
+               </PageTransition>
             );
           }}
         />
@@ -40,4 +33,4 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
