@@ -2,17 +2,20 @@
 
 ⚛️💨 A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo [See Original](https://tympanus.net/Development/PageTransitions/).
 
-### [View Basic Demo](https://codesandbox.io/s/basic-react-page-transition-demo-rk0uv)
+## Version Support
 
-### [View Advanced Demo](https://codesandbox.io/s/advanced-react-page-transition-demo-z8hmd)
+This package was forked from [@steveeeie/react-page-transition](https://github.com/Steveeeie/react-page-transition).
 
-### [View TypeScript Demo](https://codesandbox.io/s/advanced-react-page-transition-demo-typescript-nb4lzk)
+Currently supports:
+
+- ✅ Vite + React 18 + react-router & react-router-dom ^5.2.0
+- 🏗️ [WIP] Vite + React 18 + reach-router 1.3.4
 
 ---
 
 <p align="center">
-<img src="https://github.com/Steveeeie/react-page-transition/blob/master/preview-1.gif?raw=true" alt="preview" width="100%" />  <br/>
-<img src="https://github.com/Steveeeie/react-page-transition/blob/master/preview-2.gif?raw=true" alt="preview" width="100%" />
+<img src="./assets/preview-1.gif?raw=true" alt="preview" width="100%" />  <br/>
+<img src="./assets/preview-2.gif?raw=true" alt="preview" width="100%" />
 </p>
 
 ---
@@ -23,13 +26,9 @@
 
 `npm i @mesqueeb/react-page-transition`
 
----
-
 ### 2. Install Peer Dependencies
 
 `npm i react-router@^5.2.0 react-router-dom@^5.2.0`
-
----
 
 ### 3. Code Example
 
@@ -71,8 +70,6 @@ Wrap your routes inside the `PageTransition` component and pass one of the prese
 
 You will also need to pass the current `location.path` to the `transitionKey` prop, this is so that the internal `TransitionGroup` can track which components are entering and exiting.
 
----
-
 #### styles.css
 
 ```css
@@ -84,8 +81,6 @@ body,
 ```
 
 `PageTransition` is styled with `height: 100%`. The parent containers need to be given a height for it to render correctly because of this.
-
----
 
 ## Props
 
