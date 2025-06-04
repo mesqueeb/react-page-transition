@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, type CSSProperties } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group'
 import { animations, type Animation } from './animations'
 import { PageTransitionGroup } from './PageTransitionGroup'
@@ -12,12 +12,16 @@ interface AnimationOverride {
   onTop?: boolean
 }
 
-interface Props {
+export interface PageTransitionProps {
   children: React.ReactNode
   enterAnimation?: AnimationName | AnimationOverride
   exitAnimation?: AnimationName | AnimationOverride
   preset: keyof typeof presets
   transitionKey: string
+  style?: CSSProperties
+  className?: string
+  contentStyle?: CSSProperties
+  contentClassName?: string
 }
 
 function PageTransition({
@@ -26,8 +30,12 @@ function PageTransition({
   exitAnimation: exitAnimationOverride,
   preset,
   transitionKey,
+  style,
+  className,
+  contentStyle,
+  contentClassName,
   ...rest
-}: Props) {
+}: PageTransitionProps) {
   const selectEnterAnimation = (): Animation => {
     if (enterAnimationOverride) {
       if (typeof enterAnimationOverride === 'string') {
@@ -81,7 +89,7 @@ function PageTransition({
   const timeout = Math.max(enterAnimation.duration, exitAnimation.duration)
 
   return (
-    <PageTransitionGroup {...rest}>
+    <PageTransitionGroup style={style} className={className} {...rest}>
       <TransitionGroup component={null}>
         <Transition key={transitionKey} timeout={timeout}>
           {(state) => (
@@ -89,6 +97,8 @@ function PageTransition({
               enterAnimation={enterAnimation}
               exitAnimation={exitAnimation}
               state={state}
+              style={contentStyle}
+              className={contentClassName}
             >
               {children}
             </PageTransitionWrapper>

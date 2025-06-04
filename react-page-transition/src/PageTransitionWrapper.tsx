@@ -2,10 +2,12 @@ import { type CSSProperties, type FC } from 'react'
 import type { TransitionStatus } from 'react-transition-group'
 import { type Animation } from './animations'
 
-interface Props {
+export interface PageTransitionWrapperProps {
   state: TransitionStatus
   enterAnimation: Animation
   exitAnimation: Animation
+  style?: CSSProperties
+  className?: string
   children?: React.ReactNode
 }
 
@@ -36,22 +38,25 @@ const stateMap = {
   }),
 } as const
 
-export const PageTransitionWrapper: FC<Props> = ({
+export const PageTransitionWrapper: FC<PageTransitionWrapperProps> = ({
   state,
   enterAnimation,
   exitAnimation,
+  style,
+  className,
   children,
 }) => {
   const styles: CSSProperties = {
-    backfaceVisibility: 'hidden',
     height: '100%',
+    width: '100%',
+    ...style,
+    backfaceVisibility: 'hidden',
     left: 0,
     overflow: 'hidden',
     position: 'absolute',
     top: 0,
     transformStyle: 'preserve-3d',
     transform: 'translate3d(0, 0, 0)',
-    width: '100%',
     willChange: 'transform',
     ...(state && (state === 'entering' || state === 'exiting')
       ? stateMap[state](state === 'entering' ? enterAnimation : exitAnimation)
@@ -72,7 +77,9 @@ export const PageTransitionWrapper: FC<Props> = ({
           `}
         </style>
       )}
-      <div style={styles}>{children}</div>
+      <div style={styles} className={className}>
+        {children}
+      </div>
     </>
   )
 }
