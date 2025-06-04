@@ -1,11 +1,40 @@
 import { PageTransition } from '@mesqueeb/react-page-transition'
-import React from 'react'
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import React, { type CSSProperties } from 'react'
+import { BrowserRouter, Link, Route, Switch, useLocation } from 'react-router-dom'
 import './styles.css'
 
-const Home = () => <h1>Home</h1>
+const Home = ({ style }: { style: CSSProperties }) => (
+  <div style={{ ...style, background: 'goldenrod' }}>
+    <h1>Home</h1>
+  </div>
+)
 
-const About = () => <h1>About</h1>
+const About = ({ style }: { style: CSSProperties }) => (
+  <div style={{ ...style, background: 'lightseagreen' }}>
+    <h1>About</h1>
+  </div>
+)
+
+function RoutesWrapper() {
+  const location = useLocation()
+  return (
+    <PageTransition
+      preset="moveToLeftFromRight"
+      transitionKey={location?.pathname}
+      style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+      contentStyle={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+    >
+      <Switch location={location}>
+        <Route exact path="/">
+          <Home style={{ flex: 1 }} />
+        </Route>
+        <Route exact path="/about">
+          <About style={{ flex: 1 }} />
+        </Route>
+      </Switch>
+    </PageTransition>
+  )
+}
 
 function App() {
   return (
@@ -13,18 +42,7 @@ function App() {
       <BrowserRouter>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        <Route
-          render={({ location }) => {
-            return (
-              <PageTransition preset="moveToLeftFromRight" transitionKey={location.pathname}>
-                <Switch location={location}>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/about" component={About} />
-                </Switch>
-              </PageTransition>
-            )
-          }}
-        />
+        <RoutesWrapper />
       </BrowserRouter>
     </React.StrictMode>
   )
