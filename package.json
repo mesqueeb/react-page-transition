@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "description": "Monorepo for development of fork of react-page-transition",
   "author": "Luca Ban - mesqueeb. Original author: Steve Meredith <hello@stevemeredith.com> (http://stevemeredith.com/)",
   "license": "MIT",
@@ -16,14 +17,12 @@
   ],
   "scripts": {
     "build": "npm run build -w @mesqueeb/react-page-transition",
-    "build:vite": "npm run build -w basic-demo-vite",
-    "dev:vite": "npm run dev -w basic-demo-vite",
-    "dev:basic-demo": "NODE_OPTIONS=--openssl-legacy-provider npm run start -w basic-demo"
+    "build:vite": "npm run build -w basic-demo",
+    "dev": "npm run dev -w basic-demo"
   },
   "workspaces": [
     "react-page-transition",
-    "basic-demo",
-    "basic-demo-vite"
+    "basic-demo"
   ],
   "devDependencies": {
     "@cycraft/eslint": "^0.4.4"

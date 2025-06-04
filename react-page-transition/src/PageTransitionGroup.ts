@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const PageTransitionGroup = styled.div`
   position: relative;
@@ -6,4 +6,4 @@ export const PageTransitionGroup = styled.div`
   height: 100%;
   perspective: 1200px;
   overflow: hidden;
-`;
+`

@@ -1,23 +1,23 @@
-import React, { memo } from 'react';
-import { Transition, TransitionGroup } from 'react-transition-group';
-import { animations, type Animation } from './animations';
-import { presets } from './presets';
-import { PageTransitionGroup } from './PageTransitionGroup';
-import { PageTransitionWrapper } from './PageTransitionWrapper';
-import { type AnimationName } from './types';
+import React, { memo } from 'react'
+import { Transition, TransitionGroup } from 'react-transition-group'
+import { animations, type Animation } from './animations'
+import { PageTransitionGroup } from './PageTransitionGroup'
+import { PageTransitionWrapper } from './PageTransitionWrapper'
+import { presets } from './presets'
+import { type AnimationName } from './types'
 
 interface AnimationOverride {
-  name: AnimationName;
-  delay?: number;
-  onTop?: boolean;
+  name: AnimationName
+  delay?: number
+  onTop?: boolean
 }
 
 interface Props {
-  children: React.ReactNode;
-  enterAnimation?: AnimationName | AnimationOverride;
-  exitAnimation?: AnimationName | AnimationOverride;
-  preset: keyof typeof presets;
-  transitionKey: string;
+  children: React.ReactNode
+  enterAnimation?: AnimationName | AnimationOverride
+  exitAnimation?: AnimationName | AnimationOverride
+  preset: keyof typeof presets
+  transitionKey: string
 }
 
 function PageTransition({
@@ -31,60 +31,60 @@ function PageTransition({
   const selectEnterAnimation = (): Animation => {
     if (enterAnimationOverride) {
       if (typeof enterAnimationOverride === 'string') {
-        return animations[enterAnimationOverride];
+        return animations[enterAnimationOverride]
       }
-      const baseAnimation = animations[enterAnimationOverride.name];
+      const baseAnimation = animations[enterAnimationOverride.name]
       return {
         ...baseAnimation,
         delay: enterAnimationOverride.delay ? `${enterAnimationOverride.delay}ms` : undefined,
-        onTop: enterAnimationOverride.onTop
-      };
+        onTop: enterAnimationOverride.onTop,
+      }
     }
     if (preset) {
-      const presetAnimation = presets[preset].enter;
-      const baseAnimation = animations[presetAnimation.name];
+      const presetAnimation = presets[preset].enter
+      const baseAnimation = animations[presetAnimation.name]
       return {
         ...baseAnimation,
         delay: presetAnimation.delay ? `${presetAnimation.delay}ms` : undefined,
-        onTop: presetAnimation.onTop
-      };
+        onTop: presetAnimation.onTop,
+      }
     }
-    return animations.rotateSlideIn;
-  };
+    return animations.rotateSlideIn
+  }
 
   const selectExitAnimation = (): Animation => {
     if (exitAnimationOverride) {
       if (typeof exitAnimationOverride === 'string') {
-        return animations[exitAnimationOverride];
+        return animations[exitAnimationOverride]
       }
-      const baseAnimation = animations[exitAnimationOverride.name];
+      const baseAnimation = animations[exitAnimationOverride.name]
       return {
         ...baseAnimation,
         delay: exitAnimationOverride.delay ? `${exitAnimationOverride.delay}ms` : undefined,
-        onTop: exitAnimationOverride.onTop
-      };
+        onTop: exitAnimationOverride.onTop,
+      }
     }
     if (preset) {
-      const presetAnimation = presets[preset].exit;
-      const baseAnimation = animations[presetAnimation.name];
+      const presetAnimation = presets[preset].exit
+      const baseAnimation = animations[presetAnimation.name]
       return {
         ...baseAnimation,
         delay: presetAnimation.delay ? `${presetAnimation.delay}ms` : undefined,
-        onTop: presetAnimation.onTop
-      };
+        onTop: presetAnimation.onTop,
+      }
     }
-    return animations.rotateSlideIn;
-  };
+    return animations.rotateSlideIn
+  }
 
-  const enterAnimation = selectEnterAnimation();
-  const exitAnimation = selectExitAnimation();
-  const timeout = Math.max(enterAnimation.duration, exitAnimation.duration);
+  const enterAnimation = selectEnterAnimation()
+  const exitAnimation = selectExitAnimation()
+  const timeout = Math.max(enterAnimation.duration, exitAnimation.duration)
 
   return (
     <PageTransitionGroup {...rest}>
       <TransitionGroup component={null}>
         <Transition key={transitionKey} timeout={timeout}>
-          {state => (
+          {(state) => (
             <PageTransitionWrapper
               enterAnimation={enterAnimation}
               exitAnimation={exitAnimation}
@@ -96,7 +96,7 @@ function PageTransition({
         </Transition>
       </TransitionGroup>
     </PageTransitionGroup>
-  );
+  )
 }
 
-export default memo(PageTransition);
+export default memo(PageTransition)

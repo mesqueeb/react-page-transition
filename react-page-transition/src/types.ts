@@ -1,3 +1,3 @@
-import { animations } from './animations';
+import { animations } from './animations'
 
-export type AnimationName = keyof typeof animations; 
+export type AnimationName = keyof typeof animations

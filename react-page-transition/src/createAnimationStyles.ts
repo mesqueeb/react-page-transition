@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import { type Animation } from './animations';
+import { css } from 'styled-components'
+import { type Animation } from './animations'
 
 export const createAnimationStyles = ({
   keyframes,
@@ -8,7 +8,7 @@ export const createAnimationStyles = ({
   timing,
   fill,
   origin,
-  onTop
+  onTop,
 }: Animation) => css`
   animation-name: ${keyframes};
   animation-delay: ${delay};
@@ -18,7 +18,7 @@ export const createAnimationStyles = ({
   transform-origin: ${origin || '50% 50%'};
 
   ${onTop &&
-    css`
-      z-index: 1;
-    `}
-`;
+  css`
+    z-index: 1;
+  `}
+`

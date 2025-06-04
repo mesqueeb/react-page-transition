@@ -1,16 +1,16 @@
-import { keyframes, type Keyframes } from 'styled-components';
+import { keyframes, type Keyframes } from 'styled-components'
 
 export interface Animation {
-  keyframes: Keyframes;
-  duration: number;
-  timing: string;
-  fill: string;
-  delay?: string;
-  origin?: string;
-  onTop?: boolean;
+  keyframes: Keyframes
+  duration: number
+  timing: string
+  fill: string
+  delay?: string
+  origin?: string
+  onTop?: boolean
 }
 
-export type AnimationName = 
+export type AnimationName =
   | 'moveToLeft'
   | 'moveFromLeft'
   | 'moveToRight'
@@ -92,7 +92,7 @@ export type AnimationName =
   | 'rotateCarouselBottomOut'
   | 'rotateCarouselBottomIn'
   | 'rotateSidesOut'
-  | 'rotateSidesIn';
+  | 'rotateSidesIn'
 
 export const animations: Record<AnimationName, Animation> = {
   moveToLeft: {
@@ -102,7 +102,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromLeft: {
     keyframes: keyframes`
@@ -110,7 +110,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveToRight: {
     keyframes: keyframes`
@@ -119,7 +119,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromRight: {
     keyframes: keyframes`
@@ -127,7 +127,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveToTop: {
     keyframes: keyframes`
@@ -136,7 +136,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromTop: {
     keyframes: keyframes`
@@ -144,7 +144,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveToBottom: {
     keyframes: keyframes`
@@ -153,7 +153,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromBottom: {
     keyframes: keyframes`
@@ -161,7 +161,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   fade: {
     keyframes: keyframes`
@@ -170,7 +170,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveToLeftFade: {
     keyframes: keyframes`
@@ -179,7 +179,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromLeftFade: {
     keyframes: keyframes`
@@ -187,7 +187,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveToRightFade: {
     keyframes: keyframes`
@@ -196,7 +196,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromRightFade: {
     keyframes: keyframes`
@@ -204,7 +204,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveToTopFade: {
     keyframes: keyframes`
@@ -213,7 +213,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 600,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromTopFade: {
     keyframes: keyframes`
@@ -221,7 +221,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveToBottomFade: {
     keyframes: keyframes`
@@ -230,7 +230,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   moveFromBottomFade: {
     keyframes: keyframes`
@@ -238,7 +238,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   scaleDown: {
     keyframes: keyframes`
@@ -247,7 +247,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   scaleUp: {
     keyframes: keyframes`
@@ -255,7 +255,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 700,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   scaleUpDown: {
     keyframes: keyframes`
@@ -263,7 +263,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 500,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   scaleDownUp: {
     keyframes: keyframes`
@@ -272,7 +272,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 500,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   scaleDownCenter: {
     keyframes: keyframes`
@@ -281,7 +281,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 400,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   scaleUpCenter: {
     keyframes: keyframes`
@@ -289,7 +289,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 400,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   rotateRightSideFirst: {
     keyframes: keyframes`
@@ -300,7 +300,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease-in',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateLeftSideFirst: {
     keyframes: keyframes`
@@ -311,7 +311,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease-in',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateTopSideFirst: {
     keyframes: keyframes`
@@ -322,7 +322,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease-in',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateBottomSideFirst: {
     keyframes: keyframes`
@@ -333,7 +333,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease-in',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   flipOutRight: {
     keyframes: keyframes`
@@ -343,7 +343,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   flipInLeft: {
     keyframes: keyframes`
@@ -352,7 +352,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-out',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   flipOutLeft: {
     keyframes: keyframes`
@@ -362,7 +362,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   flipInRight: {
     keyframes: keyframes`
@@ -371,7 +371,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-out',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   flipOutTop: {
     keyframes: keyframes`
@@ -381,7 +381,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   flipInBottom: {
     keyframes: keyframes`
@@ -390,7 +390,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-out',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   flipOutBottom: {
     keyframes: keyframes`
@@ -400,7 +400,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   flipInTop: {
     keyframes: keyframes`
@@ -409,7 +409,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-out',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   rotateFall: {
     keyframes: keyframes`
@@ -422,7 +422,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 1000,
     timing: 'ease-in',
     fill: 'both',
-    origin: '0% 0%'
+    origin: '0% 0%',
   },
   rotateOutNewspaper: {
     keyframes: keyframes`
@@ -432,7 +432,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   rotateInNewspaper: {
     keyframes: keyframes`
@@ -441,7 +441,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-out',
     fill: 'both',
-    origin: '50% 50%'
+    origin: '50% 50%',
   },
   rotatePushLeft: {
     keyframes: keyframes`
@@ -451,7 +451,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotatePushRight: {
     keyframes: keyframes`
@@ -461,7 +461,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotatePushTop: {
     keyframes: keyframes`
@@ -471,7 +471,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotatePushBottom: {
     keyframes: keyframes`
@@ -481,7 +481,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotatePullRight: {
     keyframes: keyframes`
@@ -490,7 +490,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotatePullLeft: {
     keyframes: keyframes`
@@ -499,7 +499,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotatePullTop: {
     keyframes: keyframes`
@@ -508,7 +508,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotatePullBottom: {
     keyframes: keyframes`
@@ -517,7 +517,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateFoldRight: {
     keyframes: keyframes`
@@ -527,7 +527,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateFoldLeft: {
     keyframes: keyframes`
@@ -537,7 +537,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateFoldTop: {
     keyframes: keyframes`
@@ -547,7 +547,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateFoldBottom: {
     keyframes: keyframes`
@@ -557,7 +557,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateUnfoldLeft: {
     keyframes: keyframes`
@@ -566,7 +566,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateUnfoldRight: {
     keyframes: keyframes`
@@ -575,7 +575,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateUnfoldTop: {
     keyframes: keyframes`
@@ -584,7 +584,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateUnfoldBottom: {
     keyframes: keyframes`
@@ -593,7 +593,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 700,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateRoomLeftOut: {
     keyframes: keyframes`
@@ -603,7 +603,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateRoomLeftIn: {
     keyframes: keyframes`
@@ -612,7 +612,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateRoomRightOut: {
     keyframes: keyframes`
@@ -622,7 +622,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateRoomRightIn: {
     keyframes: keyframes`
@@ -631,7 +631,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateRoomTopOut: {
     keyframes: keyframes`
@@ -641,7 +641,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateRoomTopIn: {
     keyframes: keyframes`
@@ -650,7 +650,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateRoomBottomOut: {
     keyframes: keyframes`
@@ -660,7 +660,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateRoomBottomIn: {
     keyframes: keyframes`
@@ -669,7 +669,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateCubeLeftOut: {
     keyframes: keyframes`
@@ -680,7 +680,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateCubeLeftIn: {
     keyframes: keyframes`
@@ -690,7 +690,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateCubeRightOut: {
     keyframes: keyframes`
@@ -701,7 +701,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateCubeRightIn: {
     keyframes: keyframes`
@@ -711,7 +711,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateCubeTopOut: {
     keyframes: keyframes`
@@ -722,7 +722,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateCubeTopIn: {
     keyframes: keyframes`
@@ -732,7 +732,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateCubeBottomOut: {
     keyframes: keyframes`
@@ -743,7 +743,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateCubeBottomIn: {
     keyframes: keyframes`
@@ -753,7 +753,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 600,
     timing: 'ease-in',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateCarouselLeftOut: {
     keyframes: keyframes`
@@ -763,7 +763,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateCarouselLeftIn: {
     keyframes: keyframes`
@@ -772,7 +772,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateCarouselRightOut: {
     keyframes: keyframes`
@@ -782,7 +782,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '0% 50%'
+    origin: '0% 50%',
   },
   rotateCarouselRightIn: {
     keyframes: keyframes`
@@ -791,7 +791,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '100% 50%'
+    origin: '100% 50%',
   },
   rotateCarouselTopOut: {
     keyframes: keyframes`
@@ -801,7 +801,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateCarouselTopIn: {
     keyframes: keyframes`
@@ -810,7 +810,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateCarouselBottomOut: {
     keyframes: keyframes`
@@ -820,7 +820,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 0%'
+    origin: '50% 0%',
   },
   rotateCarouselBottomIn: {
     keyframes: keyframes`
@@ -829,7 +829,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 800,
     timing: 'ease',
     fill: 'both',
-    origin: '50% 100%'
+    origin: '50% 100%',
   },
   rotateSidesOut: {
     keyframes: keyframes`
@@ -839,7 +839,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-in',
     fill: 'both',
-    origin: '-50% 50%'
+    origin: '-50% 50%',
   },
   rotateSidesIn: {
     keyframes: keyframes`
@@ -848,7 +848,7 @@ export const animations: Record<AnimationName, Animation> = {
     duration: 500,
     timing: 'ease-in',
     fill: 'both',
-    origin: '150% 50%'
+    origin: '150% 50%',
   },
   rotateSlideOut: {
     keyframes: keyframes`
@@ -859,7 +859,7 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 1000,
     timing: 'ease',
-    fill: 'both'
+    fill: 'both',
   },
   rotateSlideIn: {
     keyframes: keyframes`
@@ -869,6 +869,6 @@ export const animations: Record<AnimationName, Animation> = {
     `,
     duration: 1000,
     timing: 'ease',
-    fill: 'both'
-  }
-};
+    fill: 'both',
+  },
+}
