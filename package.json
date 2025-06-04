@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "description": "Monorepo for development of fork of react-page-transition",
+  "author": "Luca Ban - mesqueeb. Original author: Steve Meredith <hello@stevemeredith.com> (http://stevemeredith.com/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mesqueeb/react-page-transitions.git"
+  },
+  "keywords": [
+    "react",
+    "react-transition-group",
+    "animations",
+    "transitions",
+    "codedrops"
+  ],
+  "scripts": {
+    "build": "npm run build -w @mesqueeb/react-page-transition",
+    "dev:basic-demo": "npm run start -w basic-demo"
+  },
+  "workspaces": [
+    "react-page-transition",
+    "basic-demo"
+  ]
+}
