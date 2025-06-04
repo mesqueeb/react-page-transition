@@ -8,7 +8,8 @@ This package was forked from [@steveeeie/react-page-transition](https://github.c
 
 Currently supports:
 
-- ✅ Vite + React 18 + react-router & react-router-dom ^5.2.0
+- ✅ Vite + React 18 + react-router (aka react-router-dom) v5
+- ✅ Vite + React 18 + react-router (aka react-router-dom) v6
 - 🏗️ [WIP] Vite + React 18 + reach-router 1.3.4
 
 ---
@@ -28,45 +29,43 @@ Currently supports:
 
 ### 2. Install Peer Dependencies
 
-`npm i react-router@^5.2.0 react-router-dom@^5.2.0`
+`npm i react-router-dom@^6.30.1`
 
 ### 3. Code Example
 
 #### App.js
 
-```jsx
-import React from 'react'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+```tsx
 import { PageTransition } from '@mesqueeb/react-page-transition'
-import './styles.css'
+import React, { type CSSProperties } from 'react'
+import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 
-const Home = (props) => <h1>Home</h1>
-
-const About = (props) => <h1>About</h1>
-
-export default function App() {
+function RoutesWrapper() {
+  const location = useLocation()
   return (
-    <BrowserRouter>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Route
-        render={({ location }) => {
-          return (
-            <PageTransition preset="moveToLeftFromRight" transitionKey={location.pathname}>
-              <Switch location={location}>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/about" component={About} />
-              </Switch>
-            </PageTransition>
-          )
-        }}
-      />
-    </BrowserRouter>
+    <PageTransition preset="moveToLeftFromRight" transitionKey={location?.pathname}>
+      <Routes location={location}>
+        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/about" element={<h1>About</h1>} />
+      </Routes>
+    </PageTransition>
+  )
+}
+
+function App() {
+  return (
+    <React.StrictMode>
+      <BrowserRouter>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <RoutesWrapper />
+      </BrowserRouter>
+    </React.StrictMode>
   )
 }
 ```
 
-Wrap your routes inside the `PageTransition` component and pass one of the preset names to the `preset` prop. [View the advanced demo](https://codesandbox.io/s/advanced-react-page-transition-demo-z8hmd) for the full list of presets.
+Wrap your routes inside the `PageTransition` component and pass one of the preset names to the `preset` prop. [View the presets](./react-page-transition/src/presets.ts) for the full list of presets.
 
 You will also need to pass the current `location.path` to the `transitionKey` prop, this is so that the internal `TransitionGroup` can track which components are entering and exiting.
 
@@ -76,7 +75,7 @@ You will also need to pass the current `location.path` to the `transitionKey` pr
 html,
 body,
 #root {
-  height: 100%;
+  height: 100dvh;
 }
 ```
 
@@ -90,5 +89,3 @@ body,
 | `enterAnimation` | No       | String            | Sets the enter animation \*                                         |
 | `exitAnimation`  | No       | String            | Sets the exit animation \*                                          |
 | `transitionKey`  | Yes      | Unique Identifier | Used internally to track which components are entering and exiting. |
-
-##### \* [View the advanced demo](https://codesandbox.io/s/advanced-react-page-transition-demo-z8hmd) for the full list of presets and animations.

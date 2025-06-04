@@ -17,11 +17,13 @@
   ],
   "scripts": {
     "build": "npm run build -w @mesqueeb/react-page-transition",
+    "dev:demo-react-router-v6": "npm run dev -w demo-react-router-v6",
     "dev:demo-react-router-v5": "npm run dev -w demo-react-router-v5",
     "dev:demo-reach-router": "npm run dev -w demo-reach-router"
   },
   "workspaces": [
     "react-page-transition",
+    "demo-react-router-v6",
     "demo-react-router-v5",
     "demo-reach-router"
   ],
