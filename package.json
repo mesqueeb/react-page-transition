@@ -17,12 +17,11 @@
   ],
   "scripts": {
     "build": "npm run build -w @mesqueeb/react-page-transition",
-    "build:vite": "npm run build -w basic-demo",
-    "dev": "npm run dev -w basic-demo"
+    "dev:demo-react-router-v5": "npm run dev -w demo-react-router-v5"
   },
   "workspaces": [
     "react-page-transition",
-    "basic-demo"
+    "demo-react-router-v5"
   ],
   "devDependencies": {
     "@cycraft/eslint": "^0.4.4"
