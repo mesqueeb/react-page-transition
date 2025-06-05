@@ -1,5 +1,5 @@
 import { PageTransition } from '@mesqueeb/react-page-transition'
-import React, { type CSSProperties } from 'react'
+import { type CSSProperties } from 'react'
 import { BrowserRouter, Link, Route, Switch, useLocation } from 'react-router-dom'
 import './styles.css'
 
@@ -38,13 +38,11 @@ function RoutesWrapper() {
 
 function App() {
   return (
-    <React.StrictMode>
-      <BrowserRouter>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <RoutesWrapper />
-      </BrowserRouter>
-    </React.StrictMode>
+    <BrowserRouter>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <RoutesWrapper />
+    </BrowserRouter>
   )
 }
 

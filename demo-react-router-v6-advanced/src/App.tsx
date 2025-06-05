@@ -1,5 +1,5 @@
 import { PageTransition, presets } from '@mesqueeb/react-page-transition'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { pages } from './pages'
 import './styles.css'
@@ -70,12 +70,10 @@ function App() {
     }
   }
   return (
-    <React.StrictMode>
-      <BrowserRouter>
-        <PageControls preset={preset} setPreset={setPreset} selectNextPreset={selectNextPreset} />
-        <RoutesWrapper preset={preset} />
-      </BrowserRouter>
-    </React.StrictMode>
+    <BrowserRouter>
+      <PageControls preset={preset} setPreset={setPreset} selectNextPreset={selectNextPreset} />
+      <RoutesWrapper preset={preset} />
+    </BrowserRouter>
   )
 }
 

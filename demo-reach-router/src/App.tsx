@@ -1,79 +1,50 @@
-import { Link, Router } from '@reach/router'
+import { PageTransition } from '@mesqueeb/react-page-transition'
+import { Link, Location, Router, type RouteComponentProps } from '@reach/router'
 import './styles.css'
 
-// const Home = ({ style }: { style: CSSProperties }) => (
-//   <div style={{ ...style, background: 'goldenrod' }}>
-//     <h1>Home</h1>
-//   </div>
-// )
-
-// const About = ({ style }: { style: CSSProperties }) => (
-//   <div style={{ ...style, background: 'lightseagreen' }}>
-//     <h1>About</h1>
-//   </div>
-// )
-
-// function RoutesWrapper() {
-//   const location = useLocation()
-//   return (
-//     // <PageTransition
-//     //   preset="moveToLeftFromRight"
-//     //   transitionKey={location?.pathname}
-//     //   style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
-//     //   contentStyle={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
-//     // >
-//     <Router style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
-//       {/* <Routes location={location}> */}
-//       <Home path="/" style={{ flex: 1 }} />
-//       <About path="/about" style={{ flex: 1 }} />
-//       {/* </Routes> */}
-//     </Router>
-//     // </PageTransition>
-//   )
-// }
-
-// function App() {
-//   return (
-//     <React.StrictMode>
-//       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
-//         <Link to="/">Home</Link>
-//         <Link to="about">About</Link>
-//         <Router
-//           style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
-//         >
-//           {/* <Link to="/">Home</Link>
-//         <Link to="/about">About</Link> */}
-//           <Home path="/" style={{ flex: 1 }} />
-//           <About path="about" style={{ flex: 1 }} />
-//         </Router>
-//       </div>
-//     </React.StrictMode>
-//   )
-// }
-
-// FROM: https://codesandbox.io/p/sandbox/lyzwj8w0qz?file=%2Fsrc%2Findex.js%3A5%2C1&from-embed
-const App = ({ children }) => (
-  <div>
-    <nav>
-      <Link to="/">Home</Link> <Link to="dashboard">Dashboard</Link>
-    </nav>
-    <Router>
-      <Home path="/" />
-      <Dashboard path="dashboard" />
-    </Router>
+const Home = ({ className }: { className: string } & RouteComponentProps) => (
+  <div style={{ background: 'goldenrod' }} className={className}>
+    <h1>Home</h1>
   </div>
 )
 
-const Home = () => (
-  <div>
-    <h2>Welcome</h2>
+const About = ({ className }: { className: string } & RouteComponentProps) => (
+  <div style={{ background: 'lightseagreen' }} className={className}>
+    <h1>About</h1>
   </div>
 )
 
-const Dashboard = () => (
-  <div>
-    <h2>Dashboard</h2>
-  </div>
-)
+function App() {
+  return (
+    <>
+      <style lang="css">
+        {`.fullscreen { flex: 1; display: flex; flex-direction: column; align-items: stretch }`}
+        {`.fullscreen-child > * { flex: 1; display: flex; flex-direction: column; align-items: stretch }`}
+      </style>
+      <div className="fullscreen">
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+        <Location>
+          {({ location }) => (
+            <Router className="fullscreen" primary={false} location={location}>
+              <PageTransition
+                // @ts-expect-error requirement by the now deprecated @reach/router
+                path="/"
+                preset="moveToLeftFromRight"
+                transitionKey={location?.pathname}
+                style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+                // Adding fullscreen-child styles is a requirement because @reach/router adds an extra div you can't disable
+                contentClassName="fullscreen fullscreen-child"
+              >
+                <Home path="/" className="fullscreen" />
+                <About path="about" className="fullscreen" />
+              </PageTransition>
+            </Router>
+          )}
+        </Location>
+      </div>
+    </>
+  )
+}
 
 export default App

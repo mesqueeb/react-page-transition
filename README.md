@@ -19,9 +19,9 @@ Improvements made:
 
 Currently supports:
 
-- ✅ Vite + React 18 + react-router (aka react-router-dom) v5
 - ✅ Vite + React 18 + react-router (aka react-router-dom) v6
-- 🏗️ [WIP] Vite + React 18 + reach-router 1.3.4
+- ✅ Vite + React 18 + react-router (aka react-router-dom) v5
+- ✅ Vite + React 18 + @reach/router (works but with caveats, see below)
 
 ---
 
@@ -61,14 +61,12 @@ function RoutesWrapper() {
 
 function App() {
   return (
-    <React.StrictMode>
-      <style lang="css">{`html, body, #root { height: 100dvh }`}</style>
-      <BrowserRouter>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <RoutesWrapper />
-      </BrowserRouter>
-    </React.StrictMode>
+    <style lang="css">{`html, body, #root { height: 100dvh }`}</style>
+    <BrowserRouter>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <RoutesWrapper />
+    </BrowserRouter>
   )
 }
 ```
@@ -78,6 +76,17 @@ Wrap your routes inside the `PageTransition` component and pass one of the prese
 You will also need to pass the current `location.path` to the `transitionKey` prop, this is so that the internal `TransitionGroup` can track which components are entering and exiting.
 
 `PageTransition` is styled with `height: 100%`, so the parent containers need to be given a height for it to render correctly. In this code example we use `height: 100dvh`. If you have extra div layers, make sure they grow to their parent height.
+
+## Usage with `@reach/router`
+
+Not recommended, as `@reach/router` technically doesn't support React v18, but I did manage to make it work...
+
+```sh
+npm i @mesqueeb/react-page-transition
+npm i @reach/router --force # because npm says it's not compatible with React v18
+```
+
+For the code example see [demo-reach-router](./demo-reach-router/src/App.tsx) for the minimal implementation. And remember to not use `StrictMode` anywhere, as that breaks `@reach/router` completely.
 
 ## Demo Apps
 
