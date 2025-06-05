@@ -41,19 +41,38 @@ npm i react-router-dom@^6.30.1
 
 ### Code Example
 
+The following is a minimal example of how to use `PageTransition` with `react-router` v6.
+
 ```tsx
 import { PageTransition } from '@mesqueeb/react-page-transition'
-import React, { type CSSProperties } from 'react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 
 function RoutesWrapper() {
   const location = useLocation()
   return (
-    <PageTransition preset="moveToLeftFromRight" transitionKey={location?.pathname}>
-      {/* MUST pass `location` for it to work correctly! */}
+    <PageTransition
+      preset="moveToLeftFromRight"
+      transitionKey={location?.pathname}
+      className="fullscreen"
+      contentClassName="fullscreen"
+    >
       <Routes location={location}>
-        <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/about" element={<h1>About</h1>} />
+        <Route
+          path="/"
+          element={
+            <div className="fullscreen" style={{ background: 'goldenrod' }}>
+              <h1>Home</h1>
+            </div>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <div className="fullscreen" style={{ background: 'lightseagreen' }}>
+              <h1>About</h1>
+            </div>
+          }
+        />
       </Routes>
     </PageTransition>
   )
@@ -61,14 +80,36 @@ function RoutesWrapper() {
 
 function App() {
   return (
-    <style lang="css">{`html, body, #root { height: 100dvh }`}</style>
-    <BrowserRouter>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <RoutesWrapper />
-    </BrowserRouter>
+    <>
+      <style lang="css">{globalStyles}</style>
+      <BrowserRouter>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <RoutesWrapper />
+      </BrowserRouter>
+    </>
   )
 }
+
+/** Global styles defined here just to keep the example self-contained */
+const globalStyles = `
+html, body, #root {
+  margin: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.fullscreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+`
+
+export default App
 ```
 
 Wrap your routes inside the `PageTransition` component and pass one of the preset names to the `preset` prop. [View the presets](./react-page-transition/src/presets.ts) for the full list of presets.

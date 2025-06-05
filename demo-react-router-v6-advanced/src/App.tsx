@@ -2,7 +2,6 @@ import { PageTransition, presets } from '@mesqueeb/react-page-transition'
 import { useState } from 'react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { pages } from './pages'
-import './styles.css'
 
 function RoutesWrapper({ preset }: { preset: string }) {
   const location = useLocation()
@@ -10,8 +9,8 @@ function RoutesWrapper({ preset }: { preset: string }) {
     <PageTransition
       preset={preset}
       transitionKey={location?.pathname}
-      style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
-      contentStyle={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+      className="fullscreen"
+      contentClassName="fullscreen"
     >
       <Routes location={location}>
         {pages.map((page) => (
@@ -70,11 +69,32 @@ function App() {
     }
   }
   return (
-    <BrowserRouter>
-      <PageControls preset={preset} setPreset={setPreset} selectNextPreset={selectNextPreset} />
-      <RoutesWrapper preset={preset} />
-    </BrowserRouter>
+    <>
+      <style lang="css">{globalStyles}</style>
+      <BrowserRouter>
+        <PageControls preset={preset} setPreset={setPreset} selectNextPreset={selectNextPreset} />
+        <RoutesWrapper preset={preset} />
+      </BrowserRouter>
+    </>
   )
 }
+
+/** Global styles defined here just to keep the example self-contained */
+const globalStyles = `
+html, body, #root {
+  margin: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.fullscreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+`
 
 export default App

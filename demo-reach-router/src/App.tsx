@@ -1,6 +1,5 @@
 import { PageTransition } from '@mesqueeb/react-page-transition'
 import { Link, Location, Router, type RouteComponentProps } from '@reach/router'
-import './styles.css'
 
 const Home = ({ className }: { className: string } & RouteComponentProps) => (
   <div style={{ background: 'goldenrod' }} className={className}>
@@ -17,10 +16,7 @@ const About = ({ className }: { className: string } & RouteComponentProps) => (
 function App() {
   return (
     <>
-      <style lang="css">
-        {`.fullscreen { flex: 1; display: flex; flex-direction: column; align-items: stretch }`}
-        {`.fullscreen-child > * { flex: 1; display: flex; flex-direction: column; align-items: stretch }`}
-      </style>
+      <style lang="css">{globalStyles}</style>
       <div className="fullscreen">
         <Link to="/">Home</Link>
         <Link to="about">About</Link>
@@ -32,7 +28,7 @@ function App() {
                 path="/"
                 preset="moveToLeftFromRight"
                 transitionKey={location?.pathname}
-                style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+                className="fullscreen"
                 // Adding fullscreen-child styles is a requirement because @reach/router adds an extra div you can't disable
                 contentClassName="fullscreen fullscreen-child"
               >
@@ -46,5 +42,29 @@ function App() {
     </>
   )
 }
+
+/** Global styles defined here just to keep the example self-contained */
+const globalStyles = `
+html, body, #root {
+  margin: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.fullscreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.fullscreen-child > * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+`
 
 export default App

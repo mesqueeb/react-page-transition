@@ -1,16 +1,14 @@
 import { PageTransition } from '@mesqueeb/react-page-transition'
-import { type CSSProperties } from 'react'
 import { BrowserRouter, Link, Route, Switch, useLocation } from 'react-router-dom'
-import './styles.css'
 
-const Home = ({ style }: { style: CSSProperties }) => (
-  <div style={{ ...style, background: 'goldenrod' }}>
+const Home = ({ className }: { className: string }) => (
+  <div className={className} style={{ background: 'goldenrod' }}>
     <h1>Home</h1>
   </div>
 )
 
-const About = ({ style }: { style: CSSProperties }) => (
-  <div style={{ ...style, background: 'lightseagreen' }}>
+const About = ({ className }: { className: string }) => (
+  <div className={className} style={{ background: 'lightseagreen' }}>
     <h1>About</h1>
   </div>
 )
@@ -21,15 +19,15 @@ function RoutesWrapper() {
     <PageTransition
       preset="moveToLeftFromRight"
       transitionKey={location?.pathname}
-      style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
-      contentStyle={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+      className="fullscreen"
+      contentClassName="fullscreen"
     >
       <Switch location={location}>
         <Route exact path="/">
-          <Home style={{ flex: 1 }} />
+          <Home className="fullscreen" />
         </Route>
         <Route exact path="/about">
-          <About style={{ flex: 1 }} />
+          <About className="fullscreen" />
         </Route>
       </Switch>
     </PageTransition>
@@ -38,12 +36,33 @@ function RoutesWrapper() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <RoutesWrapper />
-    </BrowserRouter>
+    <>
+      <style lang="css">{globalStyles}</style>
+      <BrowserRouter>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <RoutesWrapper />
+      </BrowserRouter>
+    </>
   )
 }
+
+/** Global styles defined here just to keep the example self-contained */
+const globalStyles = `
+html, body, #root {
+  margin: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.fullscreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+`
 
 export default App
