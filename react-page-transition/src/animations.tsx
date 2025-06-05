@@ -1,4 +1,4 @@
-export interface Animation {
+export type Animation = {
   keyframes: string
   duration: number
   timing: string
@@ -92,7 +92,7 @@ export type AnimationName =
   | 'rotateSidesOut'
   | 'rotateSidesIn'
 
-export const animations: Record<AnimationName, Animation> = {
+export const animations: { [key in AnimationName]: Animation } = {
   moveToLeft: {
     keyframes: `
       from { }

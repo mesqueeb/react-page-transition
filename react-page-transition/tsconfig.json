@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     // targets
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "target": "es2020",
     "lib": [
       "DOM",
@@ -12,7 +12,7 @@
     "jsx": "react-jsx",
     // building
     "baseUrl": ".",
-    "outDir": "dist/esm",
+    "outDir": "dist",
     "declaration": true,
     "noEmitOnError": true,
     // preferences

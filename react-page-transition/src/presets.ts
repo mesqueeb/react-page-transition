@@ -1,17 +1,17 @@
-import { type AnimationName } from './types'
+import { type AnimationName } from './animations.js'
 
-interface PresetAnimation {
+type PresetAnimation = {
   name: AnimationName
   delay?: number
   onTop?: boolean
 }
 
-interface Preset {
+type Preset = {
   exit: PresetAnimation
   enter: PresetAnimation
 }
 
-export const presets: Record<string, Preset> = {
+export const presets: { [key in string]: Preset } = {
   moveToLeftFromRight: {
     exit: { name: 'moveToLeft' },
     enter: { name: 'moveFromRight' },

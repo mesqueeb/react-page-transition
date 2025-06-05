@@ -1,18 +1,17 @@
 import React, { memo, type CSSProperties } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group'
-import { animations, type Animation } from './animations'
-import { PageTransitionGroup } from './PageTransitionGroup'
-import { PageTransitionWrapper } from './PageTransitionWrapper'
-import { presets } from './presets'
-import { type AnimationName } from './types'
+import { animations, type Animation, type AnimationName } from './animations.js'
+import { PageTransitionGroup } from './PageTransitionGroup.js'
+import { PageTransitionWrapper } from './PageTransitionWrapper.js'
+import { presets } from './presets.js'
 
-interface AnimationOverride {
+export type AnimationOverride = {
   name: AnimationName
   delay?: number
   onTop?: boolean
 }
 
-export interface PageTransitionProps {
+export type PageTransitionProps = {
   children: React.ReactNode
   enterAnimation?: AnimationName | AnimationOverride
   exitAnimation?: AnimationName | AnimationOverride

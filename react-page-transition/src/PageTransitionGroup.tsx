@@ -1,6 +1,6 @@
 import type { CSSProperties, FC, ReactNode } from 'react'
 
-export interface PageTransitionGroupProps {
+export type PageTransitionGroupProps = {
   children: ReactNode
   style?: CSSProperties
   className?: string

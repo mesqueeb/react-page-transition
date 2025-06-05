@@ -1,10 +1,21 @@
-# React Page Transition
+# React Page Transition ⚛️💨
 
-⚛️💨 A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo [See Original](https://tympanus.net/Development/PageTransitions/).
+<a href="https://www.npmjs.com/package/@mesqueeb/react-page-transition"><img src="https://img.shields.io/npm/v/@mesqueeb/react-page-transition.svg" alt="Total Downloads"></a>
+<a href="https://www.npmjs.com/package/@mesqueeb/react-page-transition"><img src="https://img.shields.io/npm/dw/@mesqueeb/react-page-transition.svg" alt="Latest Stable Version"></a>
+
+A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo [See Original](https://tympanus.net/Development/PageTransitions/).
 
 ## Version Support
 
-This package was forked from [@steveeeie/react-page-transition](https://github.com/Steveeeie/react-page-transition).
+Many thanks to [@steveeeie/react-page-transition](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
+
+Improvements made:
+
+- ✅ Added support for Vite & react-router v6
+- ✅ Upgraded TypeScript to v5
+- ✅ Converted to monorepo to easily manage multiple demo apps
+- ✅ Deprecated reliance on styled-components in favour of vanilla React code
+- ✅ Drop support for legacy CJS in favour of ESM
 
 Currently supports:
 
@@ -23,17 +34,12 @@ Currently supports:
 
 ## Usage with `react-router`
 
-### 1. Install Package
+```sh
+npm i @mesqueeb/react-page-transition
+npm i react-router-dom@^6.30.1
+```
 
-`npm i @mesqueeb/react-page-transition`
-
-### 2. Install Peer Dependencies
-
-`npm i react-router-dom@^6.30.1`
-
-### 3. Code Example
-
-#### App.js
+### Code Example
 
 ```tsx
 import { PageTransition } from '@mesqueeb/react-page-transition'
@@ -44,6 +50,7 @@ function RoutesWrapper() {
   const location = useLocation()
   return (
     <PageTransition preset="moveToLeftFromRight" transitionKey={location?.pathname}>
+      {/* MUST pass `location` for it to work correctly! */}
       <Routes location={location}>
         <Route path="/" element={<h1>Home</h1>} />
         <Route path="/about" element={<h1>About</h1>} />
@@ -55,6 +62,7 @@ function RoutesWrapper() {
 function App() {
   return (
     <React.StrictMode>
+      <style lang="css">{`html, body, #root { height: 100dvh }`}</style>
       <BrowserRouter>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
@@ -69,17 +77,22 @@ Wrap your routes inside the `PageTransition` component and pass one of the prese
 
 You will also need to pass the current `location.path` to the `transitionKey` prop, this is so that the internal `TransitionGroup` can track which components are entering and exiting.
 
-#### styles.css
+`PageTransition` is styled with `height: 100%`, so the parent containers need to be given a height for it to render correctly. In this code example we use `height: 100dvh`. If you have extra div layers, make sure they grow to their parent height.
 
-```css
-html,
-body,
-#root {
-  height: 100dvh;
-}
+## Demo Apps
+
+It's easy to see the demo apps:
+
+```sh
+git clone https://github.com/mesqueeb/react-page-transition.git
+npm i
+# then you can run the demo with:
+npm run dev:demo-react-router-v6-advanced
+# or
+npm run dev:demo-react-router-v6
+# or
+npm run dev:demo-react-router-v5
 ```
-
-`PageTransition` is styled with `height: 100%`. The parent containers need to be given a height for it to render correctly because of this.
 
 ## Props
 

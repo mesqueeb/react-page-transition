@@ -1,8 +1,8 @@
 import { type CSSProperties, type FC } from 'react'
 import type { TransitionStatus } from 'react-transition-group'
-import { type Animation } from './animations'
+import { type Animation } from './animations.js'
 
-export interface PageTransitionWrapperProps {
+export type PageTransitionWrapperProps = {
   state: TransitionStatus
   enterAnimation: Animation
   exitAnimation: Animation
