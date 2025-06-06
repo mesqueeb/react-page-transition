@@ -22,7 +22,9 @@
     "dev:demo-reach-router": "npm run dev -w demo-reach-router",
     "lint": "npm run lint -w @mesqueeb/react-page-transition",
     "build": "npm run build -w @mesqueeb/react-page-transition",
-    "release": "npm run release -w @mesqueeb/react-page-transition"
+    "release": "npm run release -w @mesqueeb/react-page-transition",
+    "formatcss": "tsx scripts/formatcss.cli.ts react-page-transition/src/animations.css",
+    "test:formatcss": "vitest run"
   },
   "workspaces": [
     "react-page-transition",
@@ -34,6 +36,8 @@
   "devDependencies": {
     "@cycraft/eslint": "^0.4.4",
     "@types/react-transition-group": "^4.4.12",
-    "del-cli": "^6.0.0"
+    "del-cli": "^6.0.0",
+    "tsx": "^4.19.4",
+    "vitest": "^3.2.2"
   }
 }
