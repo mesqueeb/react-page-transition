@@ -9,6 +9,7 @@ export type Animation = {
 }
 
 export type AnimationName =
+  | 'none'
   | 'moveToLeft'
   | 'moveFromLeft'
   | 'moveToRight'
@@ -93,6 +94,15 @@ export type AnimationName =
   | 'rotateSidesIn'
 
 export const animations: { [key in AnimationName]: Animation } = {
+  none: {
+    keyframes: `
+      from { }
+      to { }
+    `,
+    duration: 1000,
+    timing: 'ease',
+    fill: 'both',
+  },
   moveToLeft: {
     keyframes: `
       from { }
