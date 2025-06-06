@@ -1,5 +1,3 @@
-/* animation delay classes */
-
 .pt-page-delay100 { animation-delay: .1s }
 .pt-page-delay180 { animation-delay: .180s }
 .pt-page-delay200 { animation-delay: .2s }
@@ -9,9 +7,6 @@
 .pt-page-delay700 { animation-delay: .7s }
 .pt-page-delay1000 { animation-delay: 1s }
 
-/* animation sets */
-
-/* move from / to  */
 @keyframes moveToLeft {
 	from { }
 	to { transform: translateX(-100%); }
@@ -80,7 +75,6 @@
 	animation: moveFromBottom .6s ease both;
 }
 
-/* fade */
 @keyframes fade {
 	from { }
 	to { opacity: 0.3; }
@@ -90,7 +84,6 @@
 	animation: fade .7s ease both;
 }
 
-/* move from / to and fade */
 @keyframes moveToLeftFade {
 	from { }
 	to { opacity: 0.3; transform: translateX(-100%); }
@@ -159,7 +152,6 @@
 	animation: moveFromBottomFade .7s ease both;
 }
 
-/* scale and fade */
 @keyframes scaleDown {
 	from { }
 	to { opacity: 0; -webkit-transform: scale(.8); transform: scale(.8); }
@@ -211,7 +203,6 @@
 	animation: scaleUpCenter .4s ease-out both;
 }
 
-/* rotate sides first and scale */
 @keyframes rotateRightSideFirst {
 	0% { }
 	40% { transform: rotateY(15deg); opacity: .8; animation-timing-function: ease-out; }
@@ -256,7 +247,6 @@
 	animation: rotateBottomSideFirst .8s both ease-in;
 }
 
-/* flip */
 @keyframes flipOutRight {
 	from { }
 	to { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2; }
@@ -333,7 +323,6 @@
 	animation: flipInTop .5s both ease-out;
 }
 
-/* rotate fall */
 @keyframes rotateFall {
 	0% { transform: rotateZ(0deg); }
 	20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
@@ -347,7 +336,6 @@
 	animation: rotateFall 1s both ease-in;
 }
 
-/* rotate newspaper */
 @keyframes rotateOutNewspaper {
 	from { }
 	to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
@@ -367,7 +355,6 @@
 	animation: rotateInNewspaper .5s both ease-out;
 }
 
-/* push */
 @keyframes rotatePushLeft {
 	from { }
 	to { opacity: 0; transform: rotateY(90deg); }
@@ -408,7 +395,6 @@
 	animation: rotatePushBottom .8s both ease;
 }
 
-/* pull */
 @keyframes rotatePullRight {
 	from { opacity: 0; transform: rotateY(-90deg); }
 }
@@ -445,7 +431,6 @@
 	animation: rotatePullBottom .5s both ease;
 }
 
-/* fold */
 @keyframes rotateFoldRight {
 	from { }
 	to { opacity: 0; transform: translateX(100%) rotateY(90deg); }
@@ -486,7 +471,6 @@
 	animation: rotateFoldBottom .7s both ease;
 }
 
-/* unfold */
 @keyframes rotateUnfoldLeft {
 	from { opacity: 0; transform: translateX(-100%) rotateY(-90deg); }
 }
@@ -523,7 +507,6 @@
 	animation: rotateUnfoldBottom .7s both ease;
 }
 
-/* room walls */
 @keyframes rotateRoomLeftOut {
 	from { }
 	to { opacity: .3; transform: translateX(-100%) rotateY(90deg); }
@@ -600,7 +583,6 @@
 	animation: rotateRoomBottomIn .8s both ease;
 }
 
-/* cube */
 @keyframes rotateCubeLeftOut {
 	0% { }
 	50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
@@ -685,7 +667,6 @@
 	animation: rotateCubeBottomIn .6s both ease-in;
 }
 
-/* carousel */
 @keyframes rotateCarouselLeftOut {
 	from { }
 	to { opacity: .3; transform: translateX(-150%) scale(.4) rotateY(-65deg); }
@@ -762,7 +743,6 @@
 	animation: rotateCarouselBottomIn .8s both ease;
 }
 
-/* sides */
 @keyframes rotateSidesOut {
 	from { }
 	to { opacity: 0; transform: translateZ(-500px) rotateY(90deg); }
@@ -782,7 +762,6 @@
 	animation: rotateSidesIn .5s both ease-out;
 }
 
-/* slide */
 @keyframes rotateSlideOut {
 	0% { }
 	25% { opacity: .5; transform: translateZ(-500px); }
