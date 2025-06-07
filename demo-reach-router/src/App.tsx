@@ -1,4 +1,5 @@
 import { PageTransition } from '@mesqueeb/react-page-transition'
+import '@mesqueeb/react-page-transition/animations.css'
 import { Link, Location, Router, type RouteComponentProps } from '@reach/router'
 
 const Home = ({ className }: { className: string } & RouteComponentProps) => (

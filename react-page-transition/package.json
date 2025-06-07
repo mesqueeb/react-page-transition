@@ -5,6 +5,7 @@
   "description": "A React component that makes it easy to implement the page transitions from the Codedrops page transitions demo",
   "exports": {
     ".": "./dist/index.js",
+    "./animations.css": "./src/animations.css",
     "./*": "./dist/*"
   },
   "scripts": {

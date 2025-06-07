@@ -7,10 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@mesqueeb/react-page-transition': path.resolve(
-        __dirname,
-        '../react-page-transition/src/index.tsx',
-      ),
+      '@mesqueeb/react-page-transition': path.resolve(__dirname, '../react-page-transition/src'),
     },
   },
 })

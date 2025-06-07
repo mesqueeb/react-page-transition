@@ -1,4 +1,5 @@
 import { PageTransition } from '@mesqueeb/react-page-transition'
+import '@mesqueeb/react-page-transition/animations.css'
 import { BrowserRouter, Link, Route, Switch, useLocation } from 'react-router-dom'
 
 const Home = ({ className }: { className: string }) => (

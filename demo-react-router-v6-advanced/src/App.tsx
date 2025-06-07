@@ -1,4 +1,5 @@
 import { PageTransition, presets } from '@mesqueeb/react-page-transition'
+import '@mesqueeb/react-page-transition/animations.css'
 import { useState } from 'react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { pages } from './pages'
