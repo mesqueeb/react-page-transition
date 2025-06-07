@@ -89,4 +89,23 @@ describe('formatCSSString', () => {
 
     expect(formatCSSString(input)).toBe(expected)
   })
+
+  test('formats CSS classes', () => {
+    const input = `
+/* Basic requirement */
+[class*="pt-page-"] { backface-visibility: hidden; transform-style: preserve-3d; transform: translate3d(0, 0, 0); will-change: transform }
+
+/* Animation Delays */
+.pt-page-delay100 { animation-delay: .1s }
+.pt-page-delay180 { animation-delay: .180s }`
+
+    const expected = `/* Basic requirement */
+[class*="pt-page-"] { backface-visibility: hidden; transform-style: preserve-3d; transform: translate3d(0, 0, 0); will-change: transform }
+
+/* Animation Delays */
+.pt-page-delay100 { animation-delay: .1s   }
+.pt-page-delay180 { animation-delay: .180s }`
+
+    expect(formatCSSString(input)).toBe(expected)
+  })
 })

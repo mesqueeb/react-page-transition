@@ -1,6 +1,7 @@
 type CssObject = {
   keyframes: undefined | { name: string; content: string }
   class: undefined | { name: string; content: string }
+  selector: undefined | { name: string; content: string }
 }
 
 export function cssAst(css: string): CssObject {
@@ -8,9 +9,10 @@ export function cssAst(css: string): CssObject {
   const normalized = css.replace(/\s+/g, ' ').trim()
 
   // Extract keyframes (greedy match up to the closing brace before the class)
-  const keyframesMatch = normalized.match(/@keyframes\s+(\w+)\s*{([\s\S]+?)}\s*\./)
+  const keyframesMatch = normalized.match(/@keyframes\s+(\w+)\s*{([\s\S]+?)}\s*[.[]/)
   // Extract class - using a more precise pattern that matches the class name and content
   const classMatch = normalized.match(/\.([\w-]+)\s*{([^}]+)}/)
+  const selectorMatch = normalized.match(/\[([\s\S]+?)\]\s*{([^}]+)}/)
 
   return {
     keyframes: keyframesMatch
@@ -18,6 +20,9 @@ export function cssAst(css: string): CssObject {
       : undefined,
     class: classMatch
       ? { name: classMatch[1].trim(), content: classMatch[2].trim().replace(/;$/, '') }
+      : undefined,
+    selector: selectorMatch
+      ? { name: selectorMatch[1].trim(), content: selectorMatch[2].trim().replace(/;$/, '') }
       : undefined,
   }
 }
@@ -41,12 +46,17 @@ function formatAnimationGroup(group: AnimationGroup): string {
       name: Math.max(...groupAnalysis.map((a) => a.class?.name.length ?? 0)),
       content: Math.max(...groupAnalysis.map((a) => a.class?.content.length ?? 0)),
     },
+    selector: {
+      name: Math.max(...groupAnalysis.map((a) => a.selector?.name.length ?? 0)),
+      content: Math.max(...groupAnalysis.map((a) => a.selector?.content.length ?? 0)),
+    },
   }
 
   // format each animation with proper alignment
   const lines = groupAnalysis.map((css) => {
     let keyframePart = ''
     let classPart = ''
+    let selectorPart = ''
     if (css.keyframes) {
       const keyframeName = css.keyframes.name.padEnd(maxLength.keyframe.name)
       const keyframeContent = css.keyframes.content.padEnd(maxLength.keyframe.content)
@@ -57,7 +67,12 @@ function formatAnimationGroup(group: AnimationGroup): string {
       const classContent = css.class.content.padEnd(maxLength.class.content)
       classPart = `.${className} { ${classContent} }`
     }
-    return keyframePart ? `${keyframePart} ${classPart}` : classPart
+    if (css.selector) {
+      const selectorName = css.selector.name.padEnd(maxLength.selector.name)
+      const selectorContent = css.selector.content.padEnd(maxLength.selector.content)
+      selectorPart = `[${selectorName}] { ${selectorContent} }`
+    }
+    return [keyframePart, classPart, selectorPart].filter(Boolean).join(' ')
   })
 
   return `/* ${group.name} */\n${lines.join('\n')}\n`.trim()
@@ -100,7 +115,11 @@ export function parseCSSFile(content: string): AnimationGroup[] {
     if (trimmedLine.startsWith('/*')) continue
 
     // If the line starts with @keyframes, it's a new animation
-    if (trimmedLine.startsWith('@keyframes') || trimmedLine.startsWith('.')) {
+    if (
+      trimmedLine.startsWith('@keyframes') ||
+      trimmedLine.startsWith('.') ||
+      trimmedLine.startsWith('[')
+    ) {
       if (currentLine) {
         if (currentGroup) currentGroup.animations.push(currentLine.trim())
       }

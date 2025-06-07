@@ -1,3 +1,6 @@
+/* Basic requirement */
+[class*="pt-page-"] { backface-visibility: hidden; transform-style: preserve-3d; transform: translate3d(0, 0, 0); will-change: transform }
+
 /* Animation Delays */
 .pt-page-delay100  { animation-delay: .1s   }
 .pt-page-delay180  { animation-delay: .180s }
@@ -8,6 +11,10 @@
 .pt-page-delay700  { animation-delay: .7s   }
 .pt-page-delay1000 { animation-delay: 1s    }
 
+/* Basic Animations */
+@keyframes none { from { } to { }              } .pt-page-none { animation: none 1s ease both  }
+@keyframes fade { from { } to { opacity: 0.3 } } .pt-page-fade { animation: fade .7s ease both }
+
 /* Move Animations */
 @keyframes moveToLeft     { from { } to { transform: translateX(-100%) } } .pt-page-moveToLeft     { animation: moveToLeft .6s ease both     }
 @keyframes moveFromLeft   { from { transform: translateX(-100%) }        } .pt-page-moveFromLeft   { animation: moveFromLeft .6s ease both   }
@@ -17,10 +24,6 @@
 @keyframes moveFromTop    { from { transform: translateY(-100%) }        } .pt-page-moveFromTop    { animation: moveFromTop .6s ease both    }
 @keyframes moveToBottom   { from { } to { transform: translateY(100%) }  } .pt-page-moveToBottom   { animation: moveToBottom .6s ease both   }
 @keyframes moveFromBottom { from { transform: translateY(100%) }         } .pt-page-moveFromBottom { animation: moveFromBottom .6s ease both }
-
-/* Basic Animations */
-@keyframes none { from { } to { }              } .pt-page-none { animation: none 1s ease both  }
-@keyframes fade { from { } to { opacity: 0.3 } } .pt-page-fade { animation: fade .7s ease both }
 
 /* Move with Fade Animations */
 @keyframes moveToLeftFade     { from { } to { opacity: 0.3; transform: translateX(-100%) } } .pt-page-moveToLeftFade     { animation: moveToLeftFade .7s ease both     }
