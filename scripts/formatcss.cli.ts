@@ -30,7 +30,7 @@ if (!inputFile) {
 // Generate output file path
 const outputFile = path.join(
   path.dirname(inputFile),
-  `${path.basename(inputFile, path.extname(inputFile))}.formatted${path.extname(inputFile)}`,
+  `${path.basename(inputFile, path.extname(inputFile))}${path.extname(inputFile)}`,
 )
 
 // Format the CSS file
