@@ -1,16 +1,6 @@
 /* Basic requirement */
 [class*="page-transition-"] { backface-visibility: hidden; transform-style: preserve-3d; transform: translate3d(0, 0, 0); will-change: transform }
 
-/* Animation Delays */
-.page-transition-delay100  { animation-delay: .1s   }
-.page-transition-delay180  { animation-delay: .180s }
-.page-transition-delay200  { animation-delay: .2s   }
-.page-transition-delay300  { animation-delay: .3s   }
-.page-transition-delay400  { animation-delay: .4s   }
-.page-transition-delay500  { animation-delay: .5s   }
-.page-transition-delay700  { animation-delay: .7s   }
-.page-transition-delay1000 { animation-delay: 1s    }
-
 /* Basic Animations */
 @keyframes none { from { } to { }              } .page-transition-none { animation: none 1s ease both  }
 @keyframes fade { from { } to { opacity: 0.3 } } .page-transition-fade { animation: fade .7s ease both }
