@@ -1,129 +1,139 @@
 /* Basic requirement */
-[class*="pt-page-"] { backface-visibility: hidden; transform-style: preserve-3d; transform: translate3d(0, 0, 0); will-change: transform }
+[class*="page-transition-"] { backface-visibility: hidden; transform-style: preserve-3d; transform: translate3d(0, 0, 0); will-change: transform }
 
 /* Animation Delays */
-.pt-page-delay100  { animation-delay: .1s   }
-.pt-page-delay180  { animation-delay: .180s }
-.pt-page-delay200  { animation-delay: .2s   }
-.pt-page-delay300  { animation-delay: .3s   }
-.pt-page-delay400  { animation-delay: .4s   }
-.pt-page-delay500  { animation-delay: .5s   }
-.pt-page-delay700  { animation-delay: .7s   }
-.pt-page-delay1000 { animation-delay: 1s    }
+.page-transition-delay100  { animation-delay: .1s   }
+.page-transition-delay180  { animation-delay: .180s }
+.page-transition-delay200  { animation-delay: .2s   }
+.page-transition-delay300  { animation-delay: .3s   }
+.page-transition-delay400  { animation-delay: .4s   }
+.page-transition-delay500  { animation-delay: .5s   }
+.page-transition-delay700  { animation-delay: .7s   }
+.page-transition-delay1000 { animation-delay: 1s    }
 
 /* Basic Animations */
-@keyframes none { from { } to { }              } .pt-page-none { animation: none 1s ease both  }
-@keyframes fade { from { } to { opacity: 0.3 } } .pt-page-fade { animation: fade .7s ease both }
+@keyframes none { from { } to { }              } .page-transition-none { animation: none 1s ease both  }
+@keyframes fade { from { } to { opacity: 0.3 } } .page-transition-fade { animation: fade .7s ease both }
 
 /* Move Animations */
-@keyframes moveToLeft     { from { } to { transform: translateX(-100%) } } .pt-page-moveToLeft     { animation: moveToLeft .6s ease both     }
-@keyframes moveFromLeft   { from { transform: translateX(-100%) }        } .pt-page-moveFromLeft   { animation: moveFromLeft .6s ease both   }
-@keyframes moveToRight    { from { } to { transform: translateX(100%) }  } .pt-page-moveToRight    { animation: moveToRight .6s ease both    }
-@keyframes moveFromRight  { from { transform: translateX(100%) }         } .pt-page-moveFromRight  { animation: moveFromRight .6s ease both  }
-@keyframes moveToTop      { from { } to { transform: translateY(-100%) } } .pt-page-moveToTop      { animation: moveToTop .6s ease both      }
-@keyframes moveFromTop    { from { transform: translateY(-100%) }        } .pt-page-moveFromTop    { animation: moveFromTop .6s ease both    }
-@keyframes moveToBottom   { from { } to { transform: translateY(100%) }  } .pt-page-moveToBottom   { animation: moveToBottom .6s ease both   }
-@keyframes moveFromBottom { from { transform: translateY(100%) }         } .pt-page-moveFromBottom { animation: moveFromBottom .6s ease both }
+@keyframes moveToLeft     { from { } to { transform: translateX(-100%) } } .page-transition-moveToLeft     { animation: moveToLeft .6s ease both     }
+@keyframes moveFromLeft   { from { transform: translateX(-100%) }        } .page-transition-moveFromLeft   { animation: moveFromLeft .6s ease both   }
+@keyframes moveToRight    { from { } to { transform: translateX(100%) }  } .page-transition-moveToRight    { animation: moveToRight .6s ease both    }
+@keyframes moveFromRight  { from { transform: translateX(100%) }         } .page-transition-moveFromRight  { animation: moveFromRight .6s ease both  }
+@keyframes moveToTop      { from { } to { transform: translateY(-100%) } } .page-transition-moveToTop      { animation: moveToTop .6s ease both      }
+@keyframes moveFromTop    { from { transform: translateY(-100%) }        } .page-transition-moveFromTop    { animation: moveFromTop .6s ease both    }
+@keyframes moveToBottom   { from { } to { transform: translateY(100%) }  } .page-transition-moveToBottom   { animation: moveToBottom .6s ease both   }
+@keyframes moveFromBottom { from { transform: translateY(100%) }         } .page-transition-moveFromBottom { animation: moveFromBottom .6s ease both }
+
+/* Move Smooth Animations */
+@keyframes moveSmoothToLeft     { from { } to { transform: translateX(-100%) } } .page-transition-moveSmoothToLeft     { animation: moveToLeft .6s ease-in-out both     }
+@keyframes moveSmoothFromLeft   { from { transform: translateX(-100%) }        } .page-transition-moveSmoothFromLeft   { animation: moveFromLeft .6s ease-in-out both   }
+@keyframes moveSmoothToRight    { from { } to { transform: translateX(100%) }  } .page-transition-moveSmoothToRight    { animation: moveToRight .6s ease-in-out both    }
+@keyframes moveSmoothFromRight  { from { transform: translateX(100%) }         } .page-transition-moveSmoothFromRight  { animation: moveFromRight .6s ease-in-out both  }
+@keyframes moveSmoothToTop      { from { } to { transform: translateY(-100%) } } .page-transition-moveSmoothToTop      { animation: moveToTop .6s ease-in-out both      }
+@keyframes moveSmoothFromTop    { from { transform: translateY(-100%) }        } .page-transition-moveSmoothFromTop    { animation: moveFromTop .6s ease-in-out both    }
+@keyframes moveSmoothToBottom   { from { } to { transform: translateY(100%) }  } .page-transition-moveSmoothToBottom   { animation: moveToBottom .6s ease-in-out both   }
+@keyframes moveSmoothFromBottom { from { transform: translateY(100%) }         } .page-transition-moveSmoothFromBottom { animation: moveFromBottom .6s ease-in-out both }
 
 /* Move with Fade Animations */
-@keyframes moveToLeftFade     { from { } to { opacity: 0.3; transform: translateX(-100%) } } .pt-page-moveToLeftFade     { animation: moveToLeftFade .7s ease both     }
-@keyframes moveFromLeftFade   { from { opacity: 0.3; transform: translateX(-100%) }        } .pt-page-moveFromLeftFade   { animation: moveFromLeftFade .7s ease both   }
-@keyframes moveToRightFade    { from { } to { opacity: 0.3; transform: translateX(100%) }  } .pt-page-moveToRightFade    { animation: moveToRightFade .7s ease both    }
-@keyframes moveFromRightFade  { from { opacity: 0.3; transform: translateX(100%) }         } .pt-page-moveFromRightFade  { animation: moveFromRightFade .7s ease both  }
-@keyframes moveToTopFade      { from { } to { opacity: 0.3; transform: translateY(-100%) } } .pt-page-moveToTopFade      { animation: moveToTopFade .7s ease both      }
-@keyframes moveFromTopFade    { from { opacity: 0.3; transform: translateY(-100%) }        } .pt-page-moveFromTopFade    { animation: moveFromTopFade .7s ease both    }
-@keyframes moveToBottomFade   { from { } to { opacity: 0.3; transform: translateY(100%) }  } .pt-page-moveToBottomFade   { animation: moveToBottomFade .7s ease both   }
-@keyframes moveFromBottomFade { from { opacity: 0.3; transform: translateY(100%) }         } .pt-page-moveFromBottomFade { animation: moveFromBottomFade .7s ease both }
+@keyframes moveToLeftFade     { from { } to { opacity: 0.3; transform: translateX(-100%) } } .page-transition-moveToLeftFade     { animation: moveToLeftFade .7s ease both     }
+@keyframes moveFromLeftFade   { from { opacity: 0.3; transform: translateX(-100%) }        } .page-transition-moveFromLeftFade   { animation: moveFromLeftFade .7s ease both   }
+@keyframes moveToRightFade    { from { } to { opacity: 0.3; transform: translateX(100%) }  } .page-transition-moveToRightFade    { animation: moveToRightFade .7s ease both    }
+@keyframes moveFromRightFade  { from { opacity: 0.3; transform: translateX(100%) }         } .page-transition-moveFromRightFade  { animation: moveFromRightFade .7s ease both  }
+@keyframes moveToTopFade      { from { } to { opacity: 0.3; transform: translateY(-100%) } } .page-transition-moveToTopFade      { animation: moveToTopFade .7s ease both      }
+@keyframes moveFromTopFade    { from { opacity: 0.3; transform: translateY(-100%) }        } .page-transition-moveFromTopFade    { animation: moveFromTopFade .7s ease both    }
+@keyframes moveToBottomFade   { from { } to { opacity: 0.3; transform: translateY(100%) }  } .page-transition-moveToBottomFade   { animation: moveToBottomFade .7s ease both   }
+@keyframes moveFromBottomFade { from { opacity: 0.3; transform: translateY(100%) }         } .page-transition-moveFromBottomFade { animation: moveFromBottomFade .7s ease both }
 
 /* Scale Animations */
-@keyframes scaleDown       { from { } to { opacity: 0; transform: scale(.8) }  } .pt-page-scaleDown       { animation: scaleDown .7s ease both          }
-@keyframes scaleUp         { from { opacity: 0; transform: scale(.8) }         } .pt-page-scaleUp         { animation: scaleUp .7s ease both            }
-@keyframes scaleUpDown     { from { opacity: 0; transform: scale(1.2) }        } .pt-page-scaleUpDown     { animation: scaleUpDown .5s ease both        }
-@keyframes scaleDownUp     { from { } to { opacity: 0; transform: scale(1.2) } } .pt-page-scaleDownUp     { animation: scaleDownUp .5s ease both        }
-@keyframes scaleDownCenter { from { } to { opacity: 0; transform: scale(.7) }  } .pt-page-scaleDownCenter { animation: scaleDownCenter .4s ease-in both }
-@keyframes scaleUpCenter   { from { opacity: 0; transform: scale(.7) }         } .pt-page-scaleUpCenter   { animation: scaleUpCenter .4s ease-out both  }
+@keyframes scaleDown       { from { } to { opacity: 0; transform: scale(.8) }  } .page-transition-scaleDown       { animation: scaleDown .7s ease both          }
+@keyframes scaleUp         { from { opacity: 0; transform: scale(.8) }         } .page-transition-scaleUp         { animation: scaleUp .7s ease both            }
+@keyframes scaleUpDown     { from { opacity: 0; transform: scale(1.2) }        } .page-transition-scaleUpDown     { animation: scaleUpDown .5s ease both        }
+@keyframes scaleDownUp     { from { } to { opacity: 0; transform: scale(1.2) } } .page-transition-scaleDownUp     { animation: scaleDownUp .5s ease both        }
+@keyframes scaleDownCenter { from { } to { opacity: 0; transform: scale(.7) }  } .page-transition-scaleDownCenter { animation: scaleDownCenter .4s ease-in both }
+@keyframes scaleUpCenter   { from { opacity: 0; transform: scale(.7) }         } .page-transition-scaleUpCenter   { animation: scaleUpCenter .4s ease-out both  }
 
 /* Rotate Side First Animations */
-@keyframes rotateRightSideFirst  { 0% { } 40% { transform: rotateY(15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 }  } .pt-page-rotateRightSideFirst  { transform-origin: 0% 50%; animation: rotateRightSideFirst .8s both ease-in  }
-@keyframes rotateLeftSideFirst   { 0% { } 40% { transform: rotateY(-15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 } } .pt-page-rotateLeftSideFirst   { transform-origin: 100% 50%; animation: rotateLeftSideFirst .8s both ease-in }
-@keyframes rotateTopSideFirst    { 0% { } 40% { transform: rotateX(15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 }  } .pt-page-rotateTopSideFirst    { transform-origin: 50% 100%; animation: rotateTopSideFirst .8s both ease-in  }
-@keyframes rotateBottomSideFirst { 0% { } 40% { transform: rotateX(-15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 } } .pt-page-rotateBottomSideFirst { transform-origin: 50% 0%; animation: rotateBottomSideFirst .8s both ease-in }
+@keyframes rotateRightSideFirst  { 0% { } 40% { transform: rotateY(15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 }  } .page-transition-rotateRightSideFirst  { transform-origin: 0% 50%; animation: rotateRightSideFirst .8s both ease-in  }
+@keyframes rotateLeftSideFirst   { 0% { } 40% { transform: rotateY(-15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 } } .page-transition-rotateLeftSideFirst   { transform-origin: 100% 50%; animation: rotateLeftSideFirst .8s both ease-in }
+@keyframes rotateTopSideFirst    { 0% { } 40% { transform: rotateX(15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 }  } .page-transition-rotateTopSideFirst    { transform-origin: 50% 100%; animation: rotateTopSideFirst .8s both ease-in  }
+@keyframes rotateBottomSideFirst { 0% { } 40% { transform: rotateX(-15deg); opacity: .8; animation-timing-function: ease-out } 100% { transform: scale(0.8) translateZ(-200px); opacity: 0 } } .page-transition-rotateBottomSideFirst { transform-origin: 50% 0%; animation: rotateBottomSideFirst .8s both ease-in }
 
 /* Flip Animations */
-@keyframes flipOutRight  { from { } to { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2 }  } .pt-page-flipOutRight  { transform-origin: 50% 50%; animation: flipOutRight .5s both ease-in  }
-@keyframes flipInLeft    { from { transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2 }        } .pt-page-flipInLeft    { transform-origin: 50% 50%; animation: flipInLeft .5s both ease-out   }
-@keyframes flipOutLeft   { from { } to { transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2 } } .pt-page-flipOutLeft   { transform-origin: 50% 50%; animation: flipOutLeft .5s both ease-in   }
-@keyframes flipInRight   { from { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2 }         } .pt-page-flipInRight   { transform-origin: 50% 50%; animation: flipInRight .5s both ease-out  }
-@keyframes flipOutTop    { from { } to { transform: translateZ(-1000px) rotateX(90deg); opacity: 0.2 }  } .pt-page-flipOutTop    { transform-origin: 50% 50%; animation: flipOutTop .5s both ease-in    }
-@keyframes flipInBottom  { from { transform: translateZ(-1000px) rotateX(-90deg); opacity: 0.2 }        } .pt-page-flipInBottom  { transform-origin: 50% 50%; animation: flipInBottom .5s both ease-out }
-@keyframes flipOutBottom { from { } to { transform: translateZ(-1000px) rotateX(-90deg); opacity: 0.2 } } .pt-page-flipOutBottom { transform-origin: 50% 50%; animation: flipOutBottom .5s both ease-in }
-@keyframes flipInTop     { from { transform: translateZ(-1000px) rotateX(90deg); opacity: 0.2 }         } .pt-page-flipInTop     { transform-origin: 50% 50%; animation: flipInTop .5s both ease-out    }
+@keyframes flipOutRight  { from { } to { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2 }  } .page-transition-flipOutRight  { transform-origin: 50% 50%; animation: flipOutRight .5s both ease-in  }
+@keyframes flipInLeft    { from { transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2 }        } .page-transition-flipInLeft    { transform-origin: 50% 50%; animation: flipInLeft .5s both ease-out   }
+@keyframes flipOutLeft   { from { } to { transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2 } } .page-transition-flipOutLeft   { transform-origin: 50% 50%; animation: flipOutLeft .5s both ease-in   }
+@keyframes flipInRight   { from { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2 }         } .page-transition-flipInRight   { transform-origin: 50% 50%; animation: flipInRight .5s both ease-out  }
+@keyframes flipOutTop    { from { } to { transform: translateZ(-1000px) rotateX(90deg); opacity: 0.2 }  } .page-transition-flipOutTop    { transform-origin: 50% 50%; animation: flipOutTop .5s both ease-in    }
+@keyframes flipInBottom  { from { transform: translateZ(-1000px) rotateX(-90deg); opacity: 0.2 }        } .page-transition-flipInBottom  { transform-origin: 50% 50%; animation: flipInBottom .5s both ease-out }
+@keyframes flipOutBottom { from { } to { transform: translateZ(-1000px) rotateX(-90deg); opacity: 0.2 } } .page-transition-flipOutBottom { transform-origin: 50% 50%; animation: flipOutBottom .5s both ease-in }
+@keyframes flipInTop     { from { transform: translateZ(-1000px) rotateX(90deg); opacity: 0.2 }         } .page-transition-flipInTop     { transform-origin: 50% 50%; animation: flipInTop .5s both ease-out    }
 
 /* Rotate Fall Animation */
-@keyframes rotateFall { 0% { transform: rotateZ(0deg) } 20% { transform: rotateZ(10deg); animation-timing-function: ease-out } 40% { transform: rotateZ(17deg) } 60% { transform: rotateZ(16deg) } 100% { transform: translateY(100%) rotateZ(17deg) } } .pt-page-rotateFall { transform-origin: 0% 0%; animation: rotateFall 1s both ease-in }
+@keyframes rotateFall { 0% { transform: rotateZ(0deg) } 20% { transform: rotateZ(10deg); animation-timing-function: ease-out } 40% { transform: rotateZ(17deg) } 60% { transform: rotateZ(16deg) } 100% { transform: translateY(100%) rotateZ(17deg) } } .page-transition-rotateFall { transform-origin: 0% 0%; animation: rotateFall 1s both ease-in }
 
 /* Newspaper Animations */
-@keyframes rotateOutNewspaper { from { } to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0 } } .pt-page-rotateOutNewspaper { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in }
-@keyframes rotateInNewspaper  { from { transform: translateZ(-3000px) rotateZ(-360deg); opacity: 0 }       } .pt-page-rotateInNewspaper  { transform-origin: 50% 50%; animation: rotateInNewspaper .5s both ease-out }
+@keyframes rotateOutNewspaper { from { } to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0 } } .page-transition-rotateOutNewspaper { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in }
+@keyframes rotateInNewspaper  { from { transform: translateZ(-3000px) rotateZ(-360deg); opacity: 0 }       } .page-transition-rotateInNewspaper  { transform-origin: 50% 50%; animation: rotateInNewspaper .5s both ease-out }
 
 /* Push Animations */
-@keyframes rotatePushLeft   { from { } to { opacity: 0; transform: rotateY(90deg) }  } .pt-page-rotatePushLeft   { transform-origin: 0% 50%; animation: rotatePushLeft .8s both ease     }
-@keyframes rotatePushRight  { from { } to { opacity: 0; transform: rotateY(-90deg) } } .pt-page-rotatePushRight  { transform-origin: 100% 50%; animation: rotatePushRight .8s both ease  }
-@keyframes rotatePushTop    { from { } to { opacity: 0; transform: rotateX(-90deg) } } .pt-page-rotatePushTop    { transform-origin: 50% 0%; animation: rotatePushTop .8s both ease      }
-@keyframes rotatePushBottom { from { } to { opacity: 0; transform: rotateX(90deg) }  } .pt-page-rotatePushBottom { transform-origin: 50% 100%; animation: rotatePushBottom .8s both ease }
+@keyframes rotatePushLeft   { from { } to { opacity: 0; transform: rotateY(90deg) }  } .page-transition-rotatePushLeft   { transform-origin: 0% 50%; animation: rotatePushLeft .8s both ease     }
+@keyframes rotatePushRight  { from { } to { opacity: 0; transform: rotateY(-90deg) } } .page-transition-rotatePushRight  { transform-origin: 100% 50%; animation: rotatePushRight .8s both ease  }
+@keyframes rotatePushTop    { from { } to { opacity: 0; transform: rotateX(-90deg) } } .page-transition-rotatePushTop    { transform-origin: 50% 0%; animation: rotatePushTop .8s both ease      }
+@keyframes rotatePushBottom { from { } to { opacity: 0; transform: rotateX(90deg) }  } .page-transition-rotatePushBottom { transform-origin: 50% 100%; animation: rotatePushBottom .8s both ease }
 
 /* Pull Animations */
-@keyframes rotatePullRight  { from { opacity: 0; transform: rotateY(-90deg) } } .pt-page-rotatePullRight  { transform-origin: 100% 50%; animation: rotatePullRight .5s both ease  }
-@keyframes rotatePullLeft   { from { opacity: 0; transform: rotateY(90deg) }  } .pt-page-rotatePullLeft   { transform-origin: 0% 50%; animation: rotatePullLeft .5s both ease     }
-@keyframes rotatePullTop    { from { opacity: 0; transform: rotateX(-90deg) } } .pt-page-rotatePullTop    { transform-origin: 50% 0%; animation: rotatePullTop .5s both ease      }
-@keyframes rotatePullBottom { from { opacity: 0; transform: rotateX(90deg) }  } .pt-page-rotatePullBottom { transform-origin: 50% 100%; animation: rotatePullBottom .5s both ease }
+@keyframes rotatePullRight  { from { opacity: 0; transform: rotateY(-90deg) } } .page-transition-rotatePullRight  { transform-origin: 100% 50%; animation: rotatePullRight .5s both ease  }
+@keyframes rotatePullLeft   { from { opacity: 0; transform: rotateY(90deg) }  } .page-transition-rotatePullLeft   { transform-origin: 0% 50%; animation: rotatePullLeft .5s both ease     }
+@keyframes rotatePullTop    { from { opacity: 0; transform: rotateX(-90deg) } } .page-transition-rotatePullTop    { transform-origin: 50% 0%; animation: rotatePullTop .5s both ease      }
+@keyframes rotatePullBottom { from { opacity: 0; transform: rotateX(90deg) }  } .page-transition-rotatePullBottom { transform-origin: 50% 100%; animation: rotatePullBottom .5s both ease }
 
 /* Fold Animations */
-@keyframes rotateFoldRight  { from { } to { opacity: 0; transform: translateX(100%) rotateY(90deg) }   } .pt-page-rotateFoldRight  { transform-origin: 0% 50%; animation: rotateFoldRight .7s both ease  }
-@keyframes rotateFoldLeft   { from { } to { opacity: 0; transform: translateX(-100%) rotateY(-90deg) } } .pt-page-rotateFoldLeft   { transform-origin: 100% 50%; animation: rotateFoldLeft .7s both ease }
-@keyframes rotateFoldTop    { from { } to { opacity: 0; transform: translateY(-100%) rotateX(90deg) }  } .pt-page-rotateFoldTop    { transform-origin: 50% 100%; animation: rotateFoldTop .7s both ease  }
-@keyframes rotateFoldBottom { from { } to { opacity: 0; transform: translateY(100%) rotateX(-90deg) }  } .pt-page-rotateFoldBottom { transform-origin: 50% 0%; animation: rotateFoldBottom .7s both ease }
+@keyframes rotateFoldRight  { from { } to { opacity: 0; transform: translateX(100%) rotateY(90deg) }   } .page-transition-rotateFoldRight  { transform-origin: 0% 50%; animation: rotateFoldRight .7s both ease  }
+@keyframes rotateFoldLeft   { from { } to { opacity: 0; transform: translateX(-100%) rotateY(-90deg) } } .page-transition-rotateFoldLeft   { transform-origin: 100% 50%; animation: rotateFoldLeft .7s both ease }
+@keyframes rotateFoldTop    { from { } to { opacity: 0; transform: translateY(-100%) rotateX(90deg) }  } .page-transition-rotateFoldTop    { transform-origin: 50% 100%; animation: rotateFoldTop .7s both ease  }
+@keyframes rotateFoldBottom { from { } to { opacity: 0; transform: translateY(100%) rotateX(-90deg) }  } .page-transition-rotateFoldBottom { transform-origin: 50% 0%; animation: rotateFoldBottom .7s both ease }
 
 /* Unfold Animations */
-@keyframes rotateUnfoldLeft   { from { opacity: 0; transform: translateX(-100%) rotateY(-90deg) } } .pt-page-rotateUnfoldLeft   { transform-origin: 100% 50%; animation: rotateUnfoldLeft .7s both ease }
-@keyframes rotateUnfoldRight  { from { opacity: 0; transform: translateX(100%) rotateY(90deg) }   } .pt-page-rotateUnfoldRight  { transform-origin: 0% 50%; animation: rotateUnfoldRight .7s both ease  }
-@keyframes rotateUnfoldTop    { from { opacity: 0; transform: translateY(-100%) rotateX(90deg) }  } .pt-page-rotateUnfoldTop    { transform-origin: 50% 100%; animation: rotateUnfoldTop .7s both ease  }
-@keyframes rotateUnfoldBottom { from { opacity: 0; transform: translateY(100%) rotateX(-90deg) }  } .pt-page-rotateUnfoldBottom { transform-origin: 50% 0%; animation: rotateUnfoldBottom .7s both ease }
+@keyframes rotateUnfoldLeft   { from { opacity: 0; transform: translateX(-100%) rotateY(-90deg) } } .page-transition-rotateUnfoldLeft   { transform-origin: 100% 50%; animation: rotateUnfoldLeft .7s both ease }
+@keyframes rotateUnfoldRight  { from { opacity: 0; transform: translateX(100%) rotateY(90deg) }   } .page-transition-rotateUnfoldRight  { transform-origin: 0% 50%; animation: rotateUnfoldRight .7s both ease  }
+@keyframes rotateUnfoldTop    { from { opacity: 0; transform: translateY(-100%) rotateX(90deg) }  } .page-transition-rotateUnfoldTop    { transform-origin: 50% 100%; animation: rotateUnfoldTop .7s both ease  }
+@keyframes rotateUnfoldBottom { from { opacity: 0; transform: translateY(100%) rotateX(-90deg) }  } .page-transition-rotateUnfoldBottom { transform-origin: 50% 0%; animation: rotateUnfoldBottom .7s both ease }
 
 /* Room Animations */
-@keyframes rotateRoomLeftOut   { from { } to { opacity: .3; transform: translateX(-100%) rotateY(90deg) }  } .pt-page-rotateRoomLeftOut   { transform-origin: 100% 50%; animation: rotateRoomLeftOut .8s both ease  }
-@keyframes rotateRoomLeftIn    { from { opacity: .3; transform: translateX(100%) rotateY(-90deg) }         } .pt-page-rotateRoomLeftIn    { transform-origin: 0% 50%; animation: rotateRoomLeftIn .8s both ease     }
-@keyframes rotateRoomRightOut  { from { } to { opacity: .3; transform: translateX(100%) rotateY(-90deg) }  } .pt-page-rotateRoomRightOut  { transform-origin: 0% 50%; animation: rotateRoomRightOut .8s both ease   }
-@keyframes rotateRoomRightIn   { from { opacity: .3; transform: translateX(-100%) rotateY(90deg) }         } .pt-page-rotateRoomRightIn   { transform-origin: 100% 50%; animation: rotateRoomRightIn .8s both ease  }
-@keyframes rotateRoomTopOut    { from { } to { opacity: .3; transform: translateY(-100%) rotateX(-90deg) } } .pt-page-rotateRoomTopOut    { transform-origin: 50% 100%; animation: rotateRoomTopOut .8s both ease   }
-@keyframes rotateRoomTopIn     { from { opacity: .3; transform: translateY(100%) rotateX(90deg) }          } .pt-page-rotateRoomTopIn     { transform-origin: 50% 0%; animation: rotateRoomTopIn .8s both ease      }
-@keyframes rotateRoomBottomOut { from { } to { opacity: .3; transform: translateY(100%) rotateX(90deg) }   } .pt-page-rotateRoomBottomOut { transform-origin: 50% 0%; animation: rotateRoomBottomOut .8s both ease  }
-@keyframes rotateRoomBottomIn  { from { opacity: .3; transform: translateY(-100%) rotateX(-90deg) }        } .pt-page-rotateRoomBottomIn  { transform-origin: 50% 100%; animation: rotateRoomBottomIn .8s both ease }
+@keyframes rotateRoomLeftOut   { from { } to { opacity: .3; transform: translateX(-100%) rotateY(90deg) }  } .page-transition-rotateRoomLeftOut   { transform-origin: 100% 50%; animation: rotateRoomLeftOut .8s both ease  }
+@keyframes rotateRoomLeftIn    { from { opacity: .3; transform: translateX(100%) rotateY(-90deg) }         } .page-transition-rotateRoomLeftIn    { transform-origin: 0% 50%; animation: rotateRoomLeftIn .8s both ease     }
+@keyframes rotateRoomRightOut  { from { } to { opacity: .3; transform: translateX(100%) rotateY(-90deg) }  } .page-transition-rotateRoomRightOut  { transform-origin: 0% 50%; animation: rotateRoomRightOut .8s both ease   }
+@keyframes rotateRoomRightIn   { from { opacity: .3; transform: translateX(-100%) rotateY(90deg) }         } .page-transition-rotateRoomRightIn   { transform-origin: 100% 50%; animation: rotateRoomRightIn .8s both ease  }
+@keyframes rotateRoomTopOut    { from { } to { opacity: .3; transform: translateY(-100%) rotateX(-90deg) } } .page-transition-rotateRoomTopOut    { transform-origin: 50% 100%; animation: rotateRoomTopOut .8s both ease   }
+@keyframes rotateRoomTopIn     { from { opacity: .3; transform: translateY(100%) rotateX(90deg) }          } .page-transition-rotateRoomTopIn     { transform-origin: 50% 0%; animation: rotateRoomTopIn .8s both ease      }
+@keyframes rotateRoomBottomOut { from { } to { opacity: .3; transform: translateY(100%) rotateX(90deg) }   } .page-transition-rotateRoomBottomOut { transform-origin: 50% 0%; animation: rotateRoomBottomOut .8s both ease  }
+@keyframes rotateRoomBottomIn  { from { opacity: .3; transform: translateY(-100%) rotateX(-90deg) }        } .page-transition-rotateRoomBottomIn  { transform-origin: 50% 100%; animation: rotateRoomBottomIn .8s both ease }
 
 /* Cube Animations */
-@keyframes rotateCubeLeftOut   { 0% { } 50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg) } 100% { opacity: .3; transform: translateX(-100%) rotateY(-90deg) } } .pt-page-rotateCubeLeftOut   { transform-origin: 100% 50%; animation: rotateCubeLeftOut .6s both ease-in  }
-@keyframes rotateCubeLeftIn    { 0% { opacity: .3; transform: translateX(100%) rotateY(90deg) } 50% { animation-timing-function: ease-out; transform: translateX(50%) translateZ(-200px) rotateY(45deg) }              } .pt-page-rotateCubeLeftIn    { transform-origin: 0% 50%; animation: rotateCubeLeftIn .6s both ease-in     }
-@keyframes rotateCubeRightOut  { 0% { } 50% { animation-timing-function: ease-out; transform: translateX(50%) translateZ(-200px) rotateY(45deg) } 100% { opacity: .3; transform: translateX(100%) rotateY(90deg) }     } .pt-page-rotateCubeRightOut  { transform-origin: 0% 50%; animation: rotateCubeRightOut .6s both ease-in   }
-@keyframes rotateCubeRightIn   { 0% { opacity: .3; transform: translateX(-100%) rotateY(-90deg) } 50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg) }          } .pt-page-rotateCubeRightIn   { transform-origin: 100% 50%; animation: rotateCubeRightIn .6s both ease-in  }
-@keyframes rotateCubeTopOut    { 0% { } 50% { animation-timing-function: ease-out; transform: translateY(-50%) translateZ(-200px) rotateX(45deg) } 100% { opacity: .3; transform: translateY(-100%) rotateX(90deg) }   } .pt-page-rotateCubeTopOut    { transform-origin: 50% 100%; animation: rotateCubeTopOut .6s both ease-in   }
-@keyframes rotateCubeTopIn     { 0% { opacity: .3; transform: translateY(100%) rotateX(-90deg) } 50% { animation-timing-function: ease-out; transform: translateY(50%) translateZ(-200px) rotateX(-45deg) }            } .pt-page-rotateCubeTopIn     { transform-origin: 50% 0%; animation: rotateCubeTopIn .6s both ease-in      }
-@keyframes rotateCubeBottomOut { 0% { } 50% { animation-timing-function: ease-out; transform: translateY(50%) translateZ(-200px) rotateX(-45deg) } 100% { opacity: .3; transform: translateY(100%) rotateX(-90deg) }   } .pt-page-rotateCubeBottomOut { transform-origin: 50% 0%; animation: rotateCubeBottomOut .6s both ease-in  }
-@keyframes rotateCubeBottomIn  { 0% { opacity: .3; transform: translateY(-100%) rotateX(90deg) } 50% { animation-timing-function: ease-out; transform: translateY(-50%) translateZ(-200px) rotateX(45deg) }            } .pt-page-rotateCubeBottomIn  { transform-origin: 50% 100%; animation: rotateCubeBottomIn .6s both ease-in }
+@keyframes rotateCubeLeftOut   { 0% { } 50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg) } 100% { opacity: .3; transform: translateX(-100%) rotateY(-90deg) } } .page-transition-rotateCubeLeftOut   { transform-origin: 100% 50%; animation: rotateCubeLeftOut .6s both ease-in  }
+@keyframes rotateCubeLeftIn    { 0% { opacity: .3; transform: translateX(100%) rotateY(90deg) } 50% { animation-timing-function: ease-out; transform: translateX(50%) translateZ(-200px) rotateY(45deg) }              } .page-transition-rotateCubeLeftIn    { transform-origin: 0% 50%; animation: rotateCubeLeftIn .6s both ease-in     }
+@keyframes rotateCubeRightOut  { 0% { } 50% { animation-timing-function: ease-out; transform: translateX(50%) translateZ(-200px) rotateY(45deg) } 100% { opacity: .3; transform: translateX(100%) rotateY(90deg) }     } .page-transition-rotateCubeRightOut  { transform-origin: 0% 50%; animation: rotateCubeRightOut .6s both ease-in   }
+@keyframes rotateCubeRightIn   { 0% { opacity: .3; transform: translateX(-100%) rotateY(-90deg) } 50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg) }          } .page-transition-rotateCubeRightIn   { transform-origin: 100% 50%; animation: rotateCubeRightIn .6s both ease-in  }
+@keyframes rotateCubeTopOut    { 0% { } 50% { animation-timing-function: ease-out; transform: translateY(-50%) translateZ(-200px) rotateX(45deg) } 100% { opacity: .3; transform: translateY(-100%) rotateX(90deg) }   } .page-transition-rotateCubeTopOut    { transform-origin: 50% 100%; animation: rotateCubeTopOut .6s both ease-in   }
+@keyframes rotateCubeTopIn     { 0% { opacity: .3; transform: translateY(100%) rotateX(-90deg) } 50% { animation-timing-function: ease-out; transform: translateY(50%) translateZ(-200px) rotateX(-45deg) }            } .page-transition-rotateCubeTopIn     { transform-origin: 50% 0%; animation: rotateCubeTopIn .6s both ease-in      }
+@keyframes rotateCubeBottomOut { 0% { } 50% { animation-timing-function: ease-out; transform: translateY(50%) translateZ(-200px) rotateX(-45deg) } 100% { opacity: .3; transform: translateY(100%) rotateX(-90deg) }   } .page-transition-rotateCubeBottomOut { transform-origin: 50% 0%; animation: rotateCubeBottomOut .6s both ease-in  }
+@keyframes rotateCubeBottomIn  { 0% { opacity: .3; transform: translateY(-100%) rotateX(90deg) } 50% { animation-timing-function: ease-out; transform: translateY(-50%) translateZ(-200px) rotateX(45deg) }            } .page-transition-rotateCubeBottomIn  { transform-origin: 50% 100%; animation: rotateCubeBottomIn .6s both ease-in }
 
 /* Carousel Animations */
-@keyframes rotateCarouselLeftOut   { from { } to { opacity: .3; transform: translateX(-150%) scale(.4) rotateY(-65deg) } } .pt-page-rotateCarouselLeftOut   { transform-origin: 100% 50%; animation: rotateCarouselLeftOut .8s both ease  }
-@keyframes rotateCarouselLeftIn    { from { opacity: .3; transform: translateX(200%) scale(.4) rotateY(65deg) }          } .pt-page-rotateCarouselLeftIn    { transform-origin: 0% 50%; animation: rotateCarouselLeftIn .8s both ease     }
-@keyframes rotateCarouselRightOut  { from { } to { opacity: .3; transform: translateX(200%) scale(.4) rotateY(65deg) }   } .pt-page-rotateCarouselRightOut  { transform-origin: 0% 50%; animation: rotateCarouselRightOut .8s both ease   }
-@keyframes rotateCarouselRightIn   { from { opacity: .3; transform: translateX(-200%) scale(.4) rotateY(-65deg) }        } .pt-page-rotateCarouselRightIn   { transform-origin: 100% 50%; animation: rotateCarouselRightIn .8s both ease  }
-@keyframes rotateCarouselTopOut    { from { } to { opacity: .3; transform: translateY(-200%) scale(.4) rotateX(65deg) }  } .pt-page-rotateCarouselTopOut    { transform-origin: 50% 100%; animation: rotateCarouselTopOut .8s both ease   }
-@keyframes rotateCarouselTopIn     { from { opacity: .3; transform: translateY(200%) scale(.4) rotateX(-65deg) }         } .pt-page-rotateCarouselTopIn     { transform-origin: 50% 0%; animation: rotateCarouselTopIn .8s both ease      }
-@keyframes rotateCarouselBottomOut { from { } to { opacity: .3; transform: translateY(200%) scale(.4) rotateX(-65deg) }  } .pt-page-rotateCarouselBottomOut { transform-origin: 50% 0%; animation: rotateCarouselBottomOut .8s both ease  }
-@keyframes rotateCarouselBottomIn  { from { opacity: .3; transform: translateY(-200%) scale(.4) rotateX(65deg) }         } .pt-page-rotateCarouselBottomIn  { transform-origin: 50% 100%; animation: rotateCarouselBottomIn .8s both ease }
+@keyframes rotateCarouselLeftOut   { from { } to { opacity: .3; transform: translateX(-150%) scale(.4) rotateY(-65deg) } } .page-transition-rotateCarouselLeftOut   { transform-origin: 100% 50%; animation: rotateCarouselLeftOut .8s both ease  }
+@keyframes rotateCarouselLeftIn    { from { opacity: .3; transform: translateX(200%) scale(.4) rotateY(65deg) }          } .page-transition-rotateCarouselLeftIn    { transform-origin: 0% 50%; animation: rotateCarouselLeftIn .8s both ease     }
+@keyframes rotateCarouselRightOut  { from { } to { opacity: .3; transform: translateX(200%) scale(.4) rotateY(65deg) }   } .page-transition-rotateCarouselRightOut  { transform-origin: 0% 50%; animation: rotateCarouselRightOut .8s both ease   }
+@keyframes rotateCarouselRightIn   { from { opacity: .3; transform: translateX(-200%) scale(.4) rotateY(-65deg) }        } .page-transition-rotateCarouselRightIn   { transform-origin: 100% 50%; animation: rotateCarouselRightIn .8s both ease  }
+@keyframes rotateCarouselTopOut    { from { } to { opacity: .3; transform: translateY(-200%) scale(.4) rotateX(65deg) }  } .page-transition-rotateCarouselTopOut    { transform-origin: 50% 100%; animation: rotateCarouselTopOut .8s both ease   }
+@keyframes rotateCarouselTopIn     { from { opacity: .3; transform: translateY(200%) scale(.4) rotateX(-65deg) }         } .page-transition-rotateCarouselTopIn     { transform-origin: 50% 0%; animation: rotateCarouselTopIn .8s both ease      }
+@keyframes rotateCarouselBottomOut { from { } to { opacity: .3; transform: translateY(200%) scale(.4) rotateX(-65deg) }  } .page-transition-rotateCarouselBottomOut { transform-origin: 50% 0%; animation: rotateCarouselBottomOut .8s both ease  }
+@keyframes rotateCarouselBottomIn  { from { opacity: .3; transform: translateY(-200%) scale(.4) rotateX(65deg) }         } .page-transition-rotateCarouselBottomIn  { transform-origin: 50% 100%; animation: rotateCarouselBottomIn .8s both ease }
 
 /* Sides Animations */
-@keyframes rotateSidesOut { from { } to { opacity: 0; transform: translateZ(-500px) rotateY(90deg) } } .pt-page-rotateSidesOut { transform-origin: -50% 50%; animation: rotateSidesOut .5s both ease-in }
-@keyframes rotateSidesIn  { from { opacity: 0; transform: translateZ(-500px) rotateY(-90deg) }       } .pt-page-rotateSidesIn  { transform-origin: 150% 50%; animation: rotateSidesIn .5s both ease-out }
+@keyframes rotateSidesOut { from { } to { opacity: 0; transform: translateZ(-500px) rotateY(90deg) } } .page-transition-rotateSidesOut { transform-origin: -50% 50%; animation: rotateSidesOut .5s both ease-in }
+@keyframes rotateSidesIn  { from { opacity: 0; transform: translateZ(-500px) rotateY(-90deg) }       } .page-transition-rotateSidesIn  { transform-origin: 150% 50%; animation: rotateSidesIn .5s both ease-out }
 
 /* Slide Animations */
-@keyframes rotateSlideOut { 0% { } 25% { opacity: .5; transform: translateZ(-500px) } 75% { opacity: .5; transform: translateZ(-500px) translateX(-200%) } 100% { opacity: .5; transform: translateZ(-500px) translateX(-200%) } } .pt-page-rotateSlideOut { animation: rotateSlideOut 1s both ease }
-@keyframes rotateSlideIn  { 0%, 25% { opacity: .5; transform: translateZ(-500px) translateX(200%) } 75% { opacity: .5; transform: translateZ(-500px) } 100% { opacity: 1; transform: translateZ(0) translateX(0) }               } .pt-page-rotateSlideIn  { animation: rotateSlideIn 1s both ease  }
+@keyframes rotateSlideOut { 0% { } 25% { opacity: .5; transform: translateZ(-500px) } 75% { opacity: .5; transform: translateZ(-500px) translateX(-200%) } 100% { opacity: .5; transform: translateZ(-500px) translateX(-200%) } } .page-transition-rotateSlideOut { animation: rotateSlideOut 1s both ease }
+@keyframes rotateSlideIn  { 0%, 25% { opacity: .5; transform: translateZ(-500px) translateX(200%) } 75% { opacity: .5; transform: translateZ(-500px) } 100% { opacity: 1; transform: translateZ(0) translateX(0) }               } .page-transition-rotateSlideIn  { animation: rotateSlideIn 1s both ease  }

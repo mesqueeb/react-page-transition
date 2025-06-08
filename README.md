@@ -5,12 +5,13 @@
 
 A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo [See Original](https://tympanus.net/Development/PageTransitions/).
 
-## Version Support
-
 Many thanks to [@steveeeie/react-page-transition](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
 
-Improvements made:
+## Motivation
 
+Rewritten to make the following improvements:
+
+- ✅ Completely rewrote how css is applied to use a CSS file based on the original definitions (this fixed several animation bugs and added missing transitions)
 - ✅ Added support for Vite & react-router v6
 - ✅ Upgraded TypeScript to v5
 - ✅ Converted to monorepo to easily manage multiple demo apps
@@ -44,18 +45,14 @@ npm i react-router-dom@^6.30.1
 The following is a minimal example of how to use `PageTransition` with `react-router` v6.
 
 ```tsx
+import '@mesqueeb/react-page-transition/animations.css'
 import { PageTransition } from '@mesqueeb/react-page-transition'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 
 function RoutesWrapper() {
   const location = useLocation()
   return (
-    <PageTransition
-      preset="moveToLeftFromRight"
-      transitionKey={location?.pathname}
-      className="fullscreen"
-      contentClassName="fullscreen"
-    >
+    <PageTransition preset="moveToLeftFromRight" transitionKey={location?.pathname} className="fullscreen" contentClassName="fullscreen">
       <Routes location={location}>
         <Route
           path="/"

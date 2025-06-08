@@ -1,3 +1,3 @@
-export { animations } from './animations.js'
+export * from './animations.js'
 export { default as PageTransition } from './PageTransition.js'
-export { presets } from './presets.js'
+export * from './presets.js'

@@ -1,4 +1,4 @@
-import { PageTransition, presets } from '@mesqueeb/react-page-transition'
+import { PageTransition, presets, presetsInfo } from '@mesqueeb/react-page-transition'
 import '@mesqueeb/react-page-transition/animations.css'
 import { useState } from 'react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
@@ -7,12 +7,7 @@ import { pages } from './pages'
 function RoutesWrapper({ preset }: { preset: string }) {
   const location = useLocation()
   return (
-    <PageTransition
-      preset={preset}
-      transitionKey={location?.pathname}
-      className="fullscreen"
-      contentClassName="fullscreen"
-    >
+    <PageTransition preset={preset} transitionKey={location?.pathname} className="fullscreen" contentClassName="fullscreen">
       <Routes location={location}>
         {pages.map((page) => (
           <Route
@@ -30,29 +25,29 @@ function RoutesWrapper({ preset }: { preset: string }) {
   )
 }
 
-function PageControls({
-  preset,
-  selectNextPreset,
-  setPreset,
-}: {
-  preset: string
-  selectNextPreset: () => void
-  setPreset: (preset: string) => void
-}) {
+function PageControls({ preset, selectNextPreset, setPreset }: { preset: string; selectNextPreset: () => void; setPreset: (preset: string) => void }) {
   const location = useLocation()
   const currentIndex = pages.findIndex((page) => page.path === location.pathname)
 
+  const groups: { [groupName in string]: { value: string; label: string }[] } = {}
+  for (const [key, info] of Object.entries(presetsInfo)) {
+    groups[info.group] = groups[info.group] || []
+    groups[info.group].push({ value: key, label: info.label })
+  }
+
   return (
     <div style={{ display: 'flex', gap: '16px', padding: '16px' }}>
-      <Link to={pages[currentIndex + 1 === pages.length ? 0 : currentIndex + 1].path}>
-        Next Page
-      </Link>
+      <Link to={pages[currentIndex + 1 === pages.length ? 0 : currentIndex + 1].path}>Next Page</Link>
       <button onClick={selectNextPreset}>Next Preset</button>
       <select value={preset} onChange={(e) => setPreset(e.target.value)}>
-        {Object.keys(presets).map((key) => (
-          <option key={key} value={key}>
-            {key}
-          </option>
+        {Object.entries(groups).map(([groupName, presets]) => (
+          <optgroup key={groupName} label={groupName}>
+            {presets.map(({ value, label }) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </optgroup>
         ))}
       </select>
     </div>
