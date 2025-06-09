@@ -1,7 +1,6 @@
 {
   "name": "demo-react-router-v6-advanced",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --force",
