@@ -12,6 +12,7 @@ export type Preset = {
 }
 
 export type PresetId =
+  | 'none'
   | 'fall'
   | 'newspaper'
   | 'moveToLeftFromRight'
@@ -156,6 +157,7 @@ export const presets: { [presetId in PresetId]: Preset } = {
   flipTop: { exit: { name: 'flipOutTop' }, enter: { name: 'flipInBottom', delay: 500 } },
   flipBottom: { exit: { name: 'flipOutBottom' }, enter: { name: 'flipInTop', delay: 500 } },
   sides: { exit: { name: 'rotateSidesOut' }, enter: { name: 'rotateSidesIn', delay: 200 } },
+  none: { exit: { name: 'none' }, enter: { name: 'none' } },
 }
 
 export const presetsInfo: {
@@ -232,4 +234,5 @@ export const presetsInfo: {
   flipTop: { label: 'Flip top', group: 'Flip' },
   flipBottom: { label: 'Flip bottom', group: 'Flip' },
   sides: { label: 'Sides', group: 'Flip' },
+  none: { label: 'None', group: 'None' },
 }

@@ -2,7 +2,7 @@
 [class*="page-transition-"] { backface-visibility: hidden; transform-style: preserve-3d; transform: translate3d(0, 0, 0); will-change: transform }
 
 /* Basic Animations */
-@keyframes none { from { } to { }              } .page-transition-none { animation: none .1s ease both }
+@keyframes none { from { } to { }              } .page-transition-none { animation: none 0s ease both }
 @keyframes fade { from { } to { opacity: 0.3 } } .page-transition-fade { animation: fade .7s ease both }
 
 /* Move Animations */
