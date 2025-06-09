@@ -11,6 +11,15 @@ A React component that makes it easy to use the page transitions from the Codedr
 
 Many thanks to [@steveeeie](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
 
+---
+
+<p align="center">
+<img src="./assets/preview-1.gif?raw=true" alt="preview" width="100%" />  <br/>
+<img src="./assets/preview-2.gif?raw=true" alt="preview" width="100%" />
+</p>
+
+---
+
 ## Motivation
 
 I've started from a base of steveeeie but ended up completely rewriting all the code from scratch to make sure of the following support and improvements:
@@ -29,15 +38,6 @@ Features:
 - ✅ Monorepo hosts all demo apps to easily verify version support
 - ✅ The reactJS official [react-transition-group](https://github.com/reactjs/react-transition-group) as only dependency
 - ✅ ESM only, to help move the industry forward
-
----
-
-<p align="center">
-<img src="./assets/preview-1.gif?raw=true" alt="preview" width="100%" />  <br/>
-<img src="./assets/preview-2.gif?raw=true" alt="preview" width="100%" />
-</p>
-
----
 
 ## Usage with `react-router`
 
