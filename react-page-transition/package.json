@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "del-cli dist && tsc",
+    "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit && eslint --config ../eslint.config.js ./src",
     "release": "npm run lint && npm run build && npm publish --access public"
   },

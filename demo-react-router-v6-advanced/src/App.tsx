@@ -1,45 +1,82 @@
-import { PageTransition, presets, presetsInfo } from '@mesqueeb/react-page-transition'
+import { PageTransition, presets, presetsInfo, type Preset, type PresetId } from '@mesqueeb/react-page-transition'
 import '@mesqueeb/react-page-transition/animations.css'
 import { useState } from 'react'
-import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { pages } from './pages'
 
-function RoutesWrapper({ preset }: { preset: string }) {
+function RoutesWrapper() {
   const location = useLocation()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [preset, setPreset] = useState<PresetId>((searchParams.get('preset') as PresetId) || 'moveToLeftFromRight')
+
+  function selectPreset(x: 'next' | 'previous' | PresetId) {
+    let nextPreset: PresetId | undefined
+    if (x === 'next' || x === 'previous') {
+      const presetEntries = Object.entries(presets) as [PresetId, Preset][]
+      const currentPresetEntryIndex = presetEntries.findIndex(([key]) => key === preset)
+      const nextPresetEntry = presetEntries[currentPresetEntryIndex + (x === 'next' ? 1 : -1)]
+      if (nextPresetEntry) {
+        nextPreset = nextPresetEntry[0]
+      }
+    } else {
+      nextPreset = x
+    }
+    if (nextPreset) {
+      setSearchParams({ preset: nextPreset })
+      setPreset(nextPreset)
+    }
+  }
+
   return (
-    <PageTransition preset={preset} transitionKey={location?.pathname} className="fullscreen" contentClassName="fullscreen">
-      <Routes location={location}>
-        {pages.map((page) => (
-          <Route
-            key={page.path}
-            path={page.path}
-            element={
-              <div style={{ flex: 1, background: page.color, padding: '16px', color: 'white' }}>
-                <h1>{page.title}</h1>
-              </div>
-            }
-          />
-        ))}
-      </Routes>
-    </PageTransition>
+    <>
+      <PageControls preset={preset} selectPreset={selectPreset} />
+      <PageTransition preset={preset} transitionKey={location?.pathname} className="fullscreen" contentClassName="fullscreen">
+        <Routes location={location}>
+          {pages.map((page) => (
+            <Route
+              key={page.path}
+              path={page.path}
+              element={
+                <div style={{ flex: 1, background: page.color, padding: '16px', color: 'white' }}>
+                  <h1>{page.title}</h1>
+                  <div className="fancy-title">{page.title}</div>
+                </div>
+              }
+            />
+          ))}
+        </Routes>
+      </PageTransition>
+    </>
   )
 }
 
-function PageControls({ preset, selectNextPreset, setPreset }: { preset: string; selectNextPreset: () => void; setPreset: (preset: string) => void }) {
+function PageControls({ preset, selectPreset }: { preset: PresetId; selectPreset: (x: 'next' | 'previous' | PresetId) => void }) {
   const location = useLocation()
   const currentIndex = pages.findIndex((page) => page.path === location.pathname)
+  const nextPage = pages[currentIndex + 1 === pages.length ? 0 : currentIndex + 1]
 
   const groups: { [groupName in string]: { value: string; label: string }[] } = {}
   for (const [key, info] of Object.entries(presetsInfo)) {
     groups[info.group] = groups[info.group] || []
     groups[info.group].push({ value: key, label: info.label })
   }
+  const navigate = useNavigate()
 
   return (
     <div style={{ display: 'flex', gap: '16px', padding: '16px' }}>
-      <Link to={pages[currentIndex + 1 === pages.length ? 0 : currentIndex + 1].path}>Next Page</Link>
-      <button onClick={selectNextPreset}>Next Preset</button>
-      <select value={preset} onChange={(e) => setPreset(e.target.value)}>
+      <button
+        onClick={() => {
+          selectPreset('next')
+          navigate(nextPage.path + '?preset=' + preset)
+        }}
+      >
+        Next Preset and Page
+      </button>
+      OR
+      <Link to={nextPage.path + '?preset=' + preset}>Next Page</Link>
+      Preset:
+      <button onClick={() => selectPreset('previous')}>←</button>
+      <select value={preset} onChange={(e) => selectPreset(e.target.value as PresetId)}>
         {Object.entries(groups).map(([groupName, presets]) => (
           <optgroup key={groupName} label={groupName}>
             {presets.map(({ value, label }) => (
@@ -50,26 +87,17 @@ function PageControls({ preset, selectNextPreset, setPreset }: { preset: string;
           </optgroup>
         ))}
       </select>
+      <button onClick={() => selectPreset('next')}>→</button>
     </div>
   )
 }
 
 function App() {
-  const [preset, setPreset] = useState('moveToLeftFromRight')
-  function selectNextPreset() {
-    const presetEntries = Object.entries(presets)
-    const currentPresetEntryIndex = presetEntries.findIndex(([key]) => key === preset)
-    const nextPresetEntry = presetEntries[currentPresetEntryIndex + 1]
-    if (nextPresetEntry) {
-      setPreset(nextPresetEntry[0])
-    }
-  }
   return (
     <>
       <style lang="css">{globalStyles}</style>
       <BrowserRouter>
-        <PageControls preset={preset} setPreset={setPreset} selectNextPreset={selectNextPreset} />
-        <RoutesWrapper preset={preset} />
+        <RoutesWrapper />
       </BrowserRouter>
     </>
   )

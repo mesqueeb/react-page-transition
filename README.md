@@ -11,7 +11,9 @@ Many thanks to [@steveeeie/react-page-transition](https://github.com/Steveeeie/r
 
 Rewritten to make the following improvements:
 
-- ✅ Completely rewrote how css is applied to use a CSS file based on the original definitions (this fixed several animation bugs and added missing transitions)
+- ✅ Completely rewrote:
+  - how css is applied to use CSS based on the original definitions (this fixed several animation bugs and added missing transitions)
+  - how animations queue when rapidly changing routes (they now nicely queue to animate all with their respective durations and animations)
 - ✅ Added support for Vite & react-router v6
 - ✅ Upgraded TypeScript to v5
 - ✅ Converted to monorepo to easily manage multiple demo apps
