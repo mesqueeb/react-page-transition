@@ -7,8 +7,6 @@ export type AnimationMeta = {
 }
 
 export type Preset = {
-  /** When navigating fast, it will await until the entire page-transition animation finishes before starting the next */
-  sequential?: boolean
   exit: AnimationMeta
   enter: AnimationMeta
 }
