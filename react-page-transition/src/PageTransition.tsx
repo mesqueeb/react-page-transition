@@ -53,11 +53,17 @@ function PageTransition({ children, preset, transitionKey, style, className, con
   }
 
   React.useEffect(() => {
-    if (transitionKey === transitionPropsEnter.key) return
+    if (!transitionKey) return
     setQueue((currentQueue) => {
-      // const { children, preset } = reactiveProps.current
-
       const lastTransition = currentQueue[currentQueue.length - 1]
+      if (
+        // don't animate towards the same page twice
+        lastTransition?.enter.key === transitionKey ||
+        // don't animate if we're just mounting
+        (!lastTransition && transitionPropsEnter.key === transitionKey)
+      ) {
+        return currentQueue
+      }
       // maybe recalculate the duration
       const newPreset = typeof preset === 'string' ? presets[preset] : preset
       const isNewPreset = lastTransition?.both.preset.enter.name !== newPreset.enter.name || lastTransition?.both.preset.exit.name !== newPreset.exit.name
