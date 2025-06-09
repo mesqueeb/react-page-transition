@@ -24,7 +24,7 @@
     "typecheck": "npm run typecheck -w @mesqueeb/react-page-transition",
     "lint": "npm run lint -w @mesqueeb/react-page-transition",
     "build": "npm run build -w @mesqueeb/react-page-transition",
-    "release": "bumpp --recursive && npm run release -w @mesqueeb/react-page-transition",
+    "release": "bumpp package.json */package.json && npm run release -w @mesqueeb/react-page-transition",
     "formatcss": "tsx scripts/formatcss.cli.ts react-page-transition/src/animations.css",
     "test:formatcss": "vitest run"
   },
