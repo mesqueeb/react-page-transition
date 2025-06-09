@@ -14,8 +14,8 @@ Many thanks to [@steveeeie](https://github.com/Steveeeie/react-page-transition) 
 ---
 
 <p align="center">
-<img src="./assets/preview-1.gif?raw=true" alt="preview" width="100%" />  <br/>
-<img src="./assets/preview-2.gif?raw=true" alt="preview" width="100%" />
+<img src="./assets/preview-1.gif?raw=true" alt="preview" width="48%" />
+<img src="./assets/preview-2.gif?raw=true" alt="preview" width="48%" />
 </p>
 
 ---
