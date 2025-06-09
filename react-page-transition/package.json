@@ -5,11 +5,11 @@
   "description": "A React component that makes it easy to implement the page transitions from the Codedrops page transitions demo",
   "exports": {
     ".": "./dist/index.js",
-    "./animations.css": "./src/animations.css",
+    "./animations.css": "./dist/animations.css",
     "./*": "./dist/*"
   },
   "scripts": {
-    "build": "del-cli dist && tsc",
+    "build": "del-cli dist && tsc && copyfiles src/animations.css dist -f",
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit && eslint --config ../eslint.config.js ./src",
     "release": "npm run lint && npm run build && npm publish --access public"
