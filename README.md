@@ -159,7 +159,7 @@ And you can bring your own.
 
 ## Bring your own animations
 
-If you look at the [animations.css](./react-page-transition/src/animations.css) file you'll see the css defined for the transitions as per the original Codrops demo. To defining your own, you can copy some of the definitions and tweak them to your liking. Make sure those styles are somewhere available in your app's stylesheets.
+If you look at the [animations.css](./react-page-transition/src/animations.css) file you'll see the css defined for the transitions as per the original Codrops demo. You can copy some of the definitions and tweak them to your liking. Make sure those styles are somewhere available in your app's stylesheets.
 
 <!-- prettier-ignore-start -->
 ```css
