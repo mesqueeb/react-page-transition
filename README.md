@@ -3,28 +3,32 @@
 <a href="https://www.npmjs.com/package/@mesqueeb/react-page-transition"><img src="https://img.shields.io/npm/v/@mesqueeb/react-page-transition.svg" alt="Total Downloads"></a>
 <a href="https://www.npmjs.com/package/@mesqueeb/react-page-transition"><img src="https://img.shields.io/npm/dw/@mesqueeb/react-page-transition.svg" alt="Latest Stable Version"></a>
 
-A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo [See Original](https://tympanus.net/Development/PageTransitions/).
+```sh
+npm i @mesqueeb/react-page-transition
+```
 
-Many thanks to [@steveeeie/react-page-transition](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
+A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo. See original demo: [tympanus.net/Development/PageTransitions/](https://tympanus.net/Development/PageTransitions/).
+
+Many thanks to [@steveeeie](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
 
 ## Motivation
 
-Rewritten to make the following improvements:
+I've started from a base of steveeeie but ended up completely rewriting all the code from scratch to make sure of the following support and improvements:
 
-- ✅ Completely rewrote:
-  - how css is applied to use CSS based on the original definitions (this fixed several animation bugs and added missing transitions)
-  - how animations queue when rapidly changing routes (they now nicely queue to animate all with their respective durations and animations)
-- ✅ Added support for Vite & react-router v6
-- ✅ Upgraded TypeScript to v5
-- ✅ Converted to monorepo to easily manage multiple demo apps
-- ✅ Deprecated reliance on styled-components in favour of vanilla React code
-- ✅ Drop support for legacy CJS in favour of ESM
-
-Currently supports:
+React support:
 
 - ✅ Vite + React 18 + react-router (aka react-router-dom) v6
 - ✅ Vite + React 18 + react-router (aka react-router-dom) v5
 - ✅ Vite + React 18 + @reach/router (works but with caveats, see below)
+
+Features:
+
+- ✅ This is a CSS based implementation, where it relies on a `page-transition-` classes (you can [bring your own](#bring-your-own-animations) animations)
+- ✅ Page transitions are queued so rapidly changing the route will animate all transitions in order with their respective durations and animations.
+- ✅ Support for Vite & react-router v6
+- ✅ Monorepo hosts all demo apps to easily verify version support
+- ✅ The reactJS official [react-transition-group](https://github.com/reactjs/react-transition-group) as only dependency
+- ✅ ESM only, to help move the industry forward
 
 ---
 
@@ -42,7 +46,7 @@ npm i @mesqueeb/react-page-transition
 npm i react-router-dom@^6.30.1
 ```
 
-### Code Example
+### Code example
 
 The following is a minimal example of how to use `PageTransition` with `react-router` v6.
 
@@ -128,26 +132,108 @@ npm i @reach/router --force # because npm says it's not compatible with React v1
 
 For the code example see [demo-reach-router](./demo-reach-router/src/App.tsx) for the minimal implementation. And remember to not use `StrictMode` anywhere, as that breaks `@reach/router` completely.
 
-## Demo Apps
+## List of presets
 
-It's easy to see the demo apps:
+The available presets are all those from the original Codrops demo. You can choose a preset by passing it to the `preset` prop, like so:
+
+```tsx
+<PageTransition preset="moveToLeftFromRight">
+```
+
+Some of my favourites:
+
+```ts
+export type PresetId = 'fall' | 'newspaper' | 'moveToLeftFromRight' | 'moveToRightFromLeft' | 'slide' | 'cubeToLeft' | 'cubeToRight'
+// and many more
+```
+
+Full list available at [presets](./react-page-transition/src/presets.ts).
+
+I added four new presets as well:
+
+```ts
+;'slideOverToLeftFromRight' | 'slideOverToRightFromLeft' | 'slideOverToTopFromBottom' | 'slideOverToBottomFromTop'
+```
+
+And you can bring your own.
+
+## Bring your own animations
+
+If you look at the [animations.css](./react-page-transition/src/animations.css) file you'll see the css defined for the transitions as per the original Codrops demo. To defining your own, you can copy some of the definitions and tweak them to your liking. Make sure those styles are somewhere available in your app's stylesheets.
+
+<!-- prettier-ignore-start -->
+```css
+@keyframes myAnimationToLeft     { from { } to { transform: translateX(-100%) }/* tweak these */ } .page-transition-myAnimationToLeft     { animation: moveToLeft .6s ease both     }
+@keyframes myAnimationFromLeft   { from { transform: translateX(-100%) }       /* tweak these */ } .page-transition-myAnimationFromLeft   { animation: moveFromLeft .6s ease both   }
+@keyframes myAnimationToRight    { from { } to { transform: translateX(100%) } /* tweak these */ } .page-transition-myAnimationToRight    { animation: moveToRight .6s ease both    }
+@keyframes myAnimationFromRight  { from { transform: translateX(100%) }        /* tweak these */ } .page-transition-myAnimationFromRight  { animation: moveFromRight .6s ease both  }
+```
+<!-- prettier-ignore-end -->
+
+Then you would run the transition like so:
+
+<!-- prettier-ignore-start -->
+```tsx
+<PageTransition
+  preset={{
+    exit: { name: 'myAnimationToLeft' },
+    enter: { name: 'myAnimationFromLeft', delay: 100, onTop: true }
+  }}
+  transitionKey={location?.pathname}
+  className="fullscreen"
+  contentClassName="fullscreen"
+>
+  <Routes location={location}>{/* ... */}</Routes>
+</PageTransition>
+```
+<!-- prettier-ignore-end -->
+
+The fullscreen classes are optional and do not come bundled with this package, so if you need to make the page transition fullscreen, you'll need to define them yourself.
+
+The `preset` prop is typed as follows:
+
+```ts
+export type AnimationMeta = {
+  name: AnimationName
+  delay?: number
+  onTop?: boolean
+}
+export type Preset = {
+  exit: AnimationMeta
+  enter: AnimationMeta
+}
+```
+
+## Demo apps
+
+It's easy to open and play with the demo app(s):
 
 ```sh
 git clone https://github.com/mesqueeb/react-page-transition.git
 npm i
 # then you can run the demo with:
 npm run dev:demo-react-router-v6-advanced
-# or
-npm run dev:demo-react-router-v6
-# or
-npm run dev:demo-react-router-v5
 ```
 
-## Props
+There are also other demos for version support testing:
 
-| Prop             | Required | Type              | Description                                                         |
-| ---------------- | -------- | ----------------- | ------------------------------------------------------------------- |
-| `preset`         | No       | String            | Sets the enter and exit animations \*                               |
-| `enterAnimation` | No       | String            | Sets the enter animation \*                                         |
-| `exitAnimation`  | No       | String            | Sets the exit animation \*                                          |
-| `transitionKey`  | Yes      | Unique Identifier | Used internally to track which components are entering and exiting. |
+```sh
+npm run dev:demo-react-router-v6
+npm run dev:demo-react-router-v5
+npm run dev:demo-reach-router
+```
+
+# License
+
+```
+WWWWWW||WWWWWW
+ W W W||W W W
+      ||
+    ( OO )__________
+     /  |           \
+    /o o|    MIT     \
+    \___/||_||__||_|| *
+         || ||  || ||
+        _||_|| _||_||
+       (__|__|(__|__|
+```
