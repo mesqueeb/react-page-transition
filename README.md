@@ -9,10 +9,10 @@ npm i @mesqueeb/react-page-transition
 
 A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo.
 
-- see original demo: [tympanus.net/Development/PageTransitions/](https://tympanus.net/Development/PageTransitions/)
-- and my demo: [mesqueeb.github.io/react-page-transition](https://mesqueeb.github.io/react-page-transition/)
+- see original demo: [tympanus.net/Development/PageTransitions/ ↗︎](https://tympanus.net/Development/PageTransitions/)
+- and my demo: [mesqueeb.github.io/react-page-transition ↗︎](https://mesqueeb.github.io/react-page-transition/)
 
-Many thanks to [@steveeeie](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
+Many thanks to [@steveeeie ↗︎](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
 
 ---
 
@@ -39,7 +39,7 @@ Features:
 - ✅ Page transitions are queued so rapidly changing the route will animate all transitions in order with their respective durations and animations.
 - ✅ Support for Vite & react-router v6
 - ✅ Monorepo hosts all demo apps to easily verify version support
-- ✅ The reactJS official [react-transition-group](https://github.com/reactjs/react-transition-group) as only dependency
+- ✅ The reactJS official [react-transition-group ↗︎](https://github.com/reactjs/react-transition-group) as only dependency
 - ✅ ESM only, to help move the industry forward
 
 ## Usage with `react-router`
@@ -51,7 +51,7 @@ npm i react-router-dom@^6.30.1
 
 ### Demo App
 
-You can play with the demo app here: [mesqueeb.github.io/react-page-transition](https://mesqueeb.github.io/react-page-transition/).
+You can play with the demo app here: [mesqueeb.github.io/react-page-transition ↗︎](https://mesqueeb.github.io/react-page-transition/).
 
 ### Code example
 
@@ -122,7 +122,7 @@ html, body, #root {
 export default App
 ```
 
-Wrap your routes inside the `PageTransition` component and pass one of the preset names to the `preset` prop. [View the presets](./react-page-transition/src/presets.ts) for the full list of presets.
+Wrap your routes inside the `PageTransition` component and pass one of the preset names to the `preset` prop. [View the presets ↗︎](./react-page-transition/src/presets.ts) for the full list of presets.
 
 You will also need to pass the current `location.path` to the `transitionKey` prop, this is so that the internal `TransitionGroup` can track which components are entering and exiting.
 
@@ -137,7 +137,7 @@ npm i @mesqueeb/react-page-transition
 npm i @reach/router --force # because npm says it's not compatible with React v18
 ```
 
-For the code example see [demo-reach-router](./demo-reach-router/src/App.tsx) for the minimal implementation. And remember to not use `StrictMode` anywhere, as that breaks `@reach/router` completely.
+For the code example see [demo-reach-router ↗︎](./demo-reach-router/src/App.tsx) for the minimal implementation. And remember to not use `StrictMode` anywhere, as that breaks `@reach/router` completely.
 
 ## List of presets
 
@@ -154,7 +154,7 @@ export type PresetId = 'fall' | 'newspaper' | 'moveToLeftFromRight' | 'moveToRig
 // and many more
 ```
 
-Full list available at [presets](./react-page-transition/src/presets.ts).
+Full list available at [presets ↗︎](./react-page-transition/src/presets.ts).
 
 I added four new presets as well:
 
@@ -166,7 +166,7 @@ And you can bring your own.
 
 ## Bring your own animations
 
-If you look at the [animations.css](./react-page-transition/src/animations.css) file you'll see the css defined for the transitions as per the original Codrops demo. You can copy some of the definitions and tweak them to your liking. Make sure those styles are somewhere available in your app's stylesheets.
+If you look at the [animations.css ↗︎](./react-page-transition/src/animations.css) file you'll see the css defined for the transitions as per the original Codrops demo. You can copy some of the definitions and tweak them to your liking. Make sure those styles are somewhere available in your app's stylesheets.
 
 <!-- prettier-ignore-start -->
 ```css
@@ -213,7 +213,7 @@ export type Preset = {
 
 ## Demo apps
 
-One demo app is hosted on GitHub Pages, so you can play with it here: [mesqueeb.github.io/react-page-transition](https://mesqueeb.github.io/react-page-transition/).
+One demo app is hosted on GitHub Pages, so you can play with it here: [mesqueeb.github.io/react-page-transition ↗︎](https://mesqueeb.github.io/react-page-transition/).
 
 It's also easy to play with all of the demo apps locally:
 
