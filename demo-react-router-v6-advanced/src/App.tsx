@@ -67,7 +67,7 @@ function PageControls({ preset, selectPreset }: { preset: PresetId; selectPreset
       <button
         onClick={() => {
           selectPreset('next')
-          navigate(nextPage.path + '?preset=' + preset)
+          setTimeout(() => navigate(nextPage.path + '?preset=' + preset), 0)
         }}
       >
         Next Preset and Page
@@ -98,6 +98,7 @@ function App() {
       <style lang="css">{globalStyles}</style>
       <BrowserRouter>
         <RoutesWrapper />
+        <AuthorCredits />
       </BrowserRouter>
     </>
   )
@@ -120,5 +121,16 @@ html, body, #root {
   align-items: stretch;
 }
 `
+
+function AuthorCredits() {
+  return (
+    <p style={{ padding: '16px', textAlign: 'center', position: 'fixed', bottom: 0, left: 0, right: 0, color: 'white' }}>
+      Made with 💜 by Luca Ban - mesqueeb
+      <a href="https://github.com/mesqueeb/react-page-transition#readme" style={{ color: 'LightSteelBlue', marginLeft: '8px' }}>
+        GITHUB
+      </a>
+    </p>
+  )
+}
 
 export default App
