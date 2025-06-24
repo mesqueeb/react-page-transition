@@ -17,8 +17,9 @@
     "codedrops"
   ],
   "scripts": {
-    "dev:demo-react-router-v6": "npm run dev -w demo-react-router-v6",
+    "build:demo-react-router-v6-advanced": "npm run build -w demo-react-router-v6-advanced",
     "dev:demo-react-router-v6-advanced": "npm run dev -w demo-react-router-v6-advanced",
+    "dev:demo-react-router-v6": "npm run dev -w demo-react-router-v6",
     "dev:demo-react-router-v5": "npm run dev -w demo-react-router-v5",
     "dev:demo-reach-router": "npm run dev -w demo-reach-router",
     "dev:demo-reach-router-nested": "npm run dev -w demo-reach-router-nested",
