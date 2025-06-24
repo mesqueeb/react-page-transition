@@ -96,7 +96,7 @@ function App() {
   return (
     <>
       <style lang="css">{globalStyles}</style>
-      <BrowserRouter>
+      <BrowserRouter basename="/react-page-transition">
         <RoutesWrapper />
         <AuthorCredits />
       </BrowserRouter>
