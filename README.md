@@ -35,7 +35,7 @@ React support:
 
 Features:
 
-- ✅ This is a CSS based implementation, where it relies on a `page-transition-` classes (you can [bring your own](#bring-your-own-animations) animations)
+- ✅ This is a CSS based implementation, where it relies on a `page-transition-` classes (you can [#bring your own](#bring-your-own-animations) animations)
 - ✅ Page transitions are queued so rapidly changing the route will animate all transitions in order with their respective durations and animations.
 - ✅ Support for Vite & react-router v6
 - ✅ Monorepo hosts all demo apps to easily verify version support
