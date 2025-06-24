@@ -46,6 +46,10 @@ npm i @mesqueeb/react-page-transition
 npm i react-router-dom@^6.30.1
 ```
 
+### Demo App
+
+You can play with the demo app here: [mesqueeb.github.io/react-page-transition](https://mesqueeb.github.io/react-page-transition/).
+
 ### Code example
 
 The following is a minimal example of how to use `PageTransition` with `react-router` v6.
@@ -206,7 +210,9 @@ export type Preset = {
 
 ## Demo apps
 
-It's easy to open and play with the demo app(s):
+One demo app is hosted on GitHub Pages, so you can play with it here: [mesqueeb.github.io/react-page-transition](https://mesqueeb.github.io/react-page-transition/).
+
+It's also easy to play with all of the demo apps locally:
 
 ```sh
 git clone https://github.com/mesqueeb/react-page-transition.git
@@ -221,6 +227,7 @@ There are also other demos for version support testing:
 npm run dev:demo-react-router-v6
 npm run dev:demo-react-router-v5
 npm run dev:demo-reach-router
+npm run dev:demo-reach-router-nested
 ```
 
 # License
