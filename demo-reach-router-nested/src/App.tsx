@@ -1,45 +1,108 @@
 import { PageTransition } from '@mesqueeb/react-page-transition'
 import '@mesqueeb/react-page-transition/animations.css'
-import { Link, Location, Router, useLocation, type RouteComponentProps } from '@reach/router'
+import { Link, Location, Router, useLocation, useMatch, type RouteComponentProps } from '@reach/router'
 
-const NestedPage = ({ className, pageNumber }: { className: string; pageNumber: number } & RouteComponentProps) => (
-  <div style={{ background: `hsl(${(pageNumber * 123) % 360},100%,50%)`, color: 'white', padding: '1rem' }} className={className}>
-    <h1>Page {pageNumber}</h1>
-  </div>
-)
-
-const RelativeNestingExample = ({ className }: { className: string } & RouteComponentProps) => {
-  const location = useLocation()
+const NestedPage = ({ className, pageNumber }: RouteComponentProps<{ className: string; pageNumber?: number }>) => {
+  const match = useMatch('*')
   return (
-    <div style={{ background: 'goldenrod', padding: '1rem' }} className={className}>
+    <div style={{ background: `hsl(${((pageNumber ?? 1) * 123) % 360},100%,50%)`, padding: '1rem' }} className={className}>
+      <h1>Nested Page {pageNumber}</h1>
+      <strong>match: {JSON.stringify(match)}</strong>
+    </div>
+  )
+}
+
+const EmbeddedNestedPage = ({ className, x }: RouteComponentProps<{ className: string; x?: number }>) => {
+  const match = useMatch('*')
+  return (
+    <div style={{ background: `hsl(${((x ?? 1) * 123) % 360},100%,50%)`, padding: '1rem' }} className={className}>
+      <h1>Embedded Nested Page {x}</h1>
+      <strong>match: {JSON.stringify(match)}</strong>
+    </div>
+  )
+}
+
+const EmbeddedRouter = ({ className, pageNumber }: RouteComponentProps<{ className: string; pageNumber?: number }>) => {
+  const location = useLocation()
+  const match = useMatch('*')
+  const transitionKey = (match?.['*'] ?? '').split('/').filter(Boolean)[0]
+  return (
+    <div style={{ background: `hsl(${(((pageNumber ?? 1) + 10) * 123) % 360},100%,50%)`, padding: '1rem' }} className={className}>
       <div style={{ padding: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-        <h1>Nested Via Relative Paths</h1>
-        <Link to="page-1">Page 1</Link>
-        <Link to="/relative-nesting/page-2">Page 2</Link>
-        pathname: {location?.pathname}
+        <h1>Embedded Page {pageNumber}</h1>
+        <Link to="page-a">Page A</Link>
+        <Link to="page-b">Page B</Link>
+        <Link to="page-c">Page C</Link>
+        pathname: <strong>{location?.pathname}</strong> transitionKey: <strong>{transitionKey}</strong>
+        match: <strong>{JSON.stringify(match)}</strong>
       </div>
       <Router className="fullscreen" primary={false} location={location}>
         <PageTransition
           // @ts-expect-error requirement by the now deprecated @reach/router
           path="/"
-          preset="cubeToLeft"
-          transitionKey={location?.pathname}
+          preset="fall"
+          transitionKey={transitionKey}
           className="fullscreen"
           // Adding fullscreen-child styles is a requirement because @reach/router adds an extra div you can't disable
           contentClassName="fullscreen fullscreen-child"
         >
-          <NestedPage path="page-1" className="fullscreen" pageNumber={1} />
-          <NestedPage path="page-2" className="fullscreen" pageNumber={2} />
+          <EmbeddedNestedPage path="page-a" className="fullscreen" x={100} />
+          <EmbeddedNestedPage path="page-b" className="fullscreen" x={101} />
+          <EmbeddedNestedPage path="page-c" className="fullscreen" x={102} />
         </PageTransition>
       </Router>
     </div>
   )
 }
 
-const SomeOtherPage = ({ className }: { className: string } & RouteComponentProps) => {
+const RelativeNestingExample = ({ className, title, background }: RouteComponentProps<{ className: string; title: string; background: string }>) => {
+  const location = useLocation()
+  const match = useMatch('*')
+  const transitionKey = (match?.['*'] ?? '').split('/').filter(Boolean).slice(0, 2).join('/')
   return (
-    <div style={{ background: 'lightseagreen', padding: '1rem' }} className={className}>
-      <h1>Some Other Page</h1>
+    <div style={{ background, padding: '1rem' }} className={className}>
+      <div style={{ padding: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <h1>{title}</h1>
+        <Link to="fixed-page">Fixed Page</Link>
+        <Link to="page/1">Page 1</Link>
+        <Link to="page/2">Page 2</Link>
+        <Link to="embedded/1">Embedded Router 1</Link>
+        <Link to="embedded/2">Embedded Router 2</Link>
+        pathname: <strong>{location?.pathname}</strong> transitionKey: <strong>{transitionKey}</strong>
+        match: <strong>{JSON.stringify(match)}</strong>
+      </div>
+      <Router className="fullscreen" primary={false} location={location}>
+        <PageTransition
+          // @ts-expect-error requirement by the now deprecated @reach/router
+          path="/"
+          preset="cubeToLeft"
+          transitionKey={transitionKey}
+          className="fullscreen"
+          // Adding fullscreen-child styles is a requirement because @reach/router adds an extra div you can't disable
+          contentClassName="fullscreen fullscreen-child"
+        >
+          <NestedPage path="fixed-page" className="fullscreen" pageNumber={0} />
+          <NestedPage path="page/:pageNumber" className="fullscreen" />
+          <EmbeddedRouter path="embedded/:pageNumber/*" className="fullscreen" />
+        </PageTransition>
+      </Router>
+    </div>
+  )
+}
+
+const Page404 = ({ className }: RouteComponentProps<{ className?: string }>) => {
+  return (
+    <div style={{ background: 'black', color: 'white', padding: '1rem' }} className={className}>
+      <h1>404</h1>
+    </div>
+  )
+}
+
+const HomePage = ({ className }: RouteComponentProps<{ className?: string }>) => {
+  return (
+    <div style={{ background: 'white', color: 'black', padding: '1rem' }} className={className}>
+      <h1>Preview</h1>
+      <p>Select from the menu above to dig into the nested routes</p>
     </div>
   )
 }
@@ -50,12 +113,12 @@ function App() {
       <style lang="css">{globalStyles}</style>
       <div className="fullscreen">
         <div style={{ padding: '1rem', display: 'flex', gap: '1rem' }}>
-          <Link to="relative-nesting">Nested Via Sub Paths</Link>
-          <Link to="other-page">Some Other Page</Link>
+          <Link to="some-page">A Top Level Page</Link>
+          <Link to="another-page">Some Other Page</Link>
         </div>
         <Location>
           {({ location }) => (
-            <Router className="fullscreen" primary={false} location={location}>
+            <Router className="fullscreen" location={location}>
               <PageTransition
                 // @ts-expect-error requirement by the now deprecated @reach/router
                 path="/"
@@ -65,8 +128,10 @@ function App() {
                 // Adding fullscreen-child styles is a requirement because @reach/router adds an extra div you can't disable
                 contentClassName="fullscreen fullscreen-child"
               >
-                <RelativeNestingExample path="relative-nesting/*" className="fullscreen" />
-                <SomeOtherPage path="other-page" className="fullscreen" />
+                <RelativeNestingExample title="A Top Level Page" path="some-page/*" className="fullscreen" background="goldenrod" />
+                <RelativeNestingExample title="Some Other Page" path="another-page/*" className="fullscreen" background="lightseagreen" />
+                <HomePage className="fullscreen" path="/" />
+                <Page404 className="fullscreen" default />
               </PageTransition>
             </Router>
           )}
