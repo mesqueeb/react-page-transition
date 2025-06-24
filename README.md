@@ -7,7 +7,10 @@
 npm i @mesqueeb/react-page-transition
 ```
 
-A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo. See original demo: [tympanus.net/Development/PageTransitions/](https://tympanus.net/Development/PageTransitions/). (and see my demo: [mesqueeb.github.io/react-page-transition](https://mesqueeb.github.io/react-page-transition/))
+A React component that makes it easy to use the page transitions from the Codedrops Page Transitions Demo.
+
+- see original demo: [tympanus.net/Development/PageTransitions/](https://tympanus.net/Development/PageTransitions/)
+- and my demo: [mesqueeb.github.io/react-page-transition](https://mesqueeb.github.io/react-page-transition/)
 
 Many thanks to [@steveeeie](https://github.com/Steveeeie/react-page-transition) for spearheading combining react-router with react-transition-group.
 
