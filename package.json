@@ -1,7 +1,7 @@
 {
   "private": true,
   "type": "module",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Monorepo for development of fork of react-page-transition",
   "author": "Luca Ban - mesqueeb. Original author: Steve Meredith <hello@stevemeredith.com> (http://stevemeredith.com/)",
   "license": "MIT",
