@@ -1,6 +1,6 @@
 {
   "name": "@mesqueeb/react-page-transition",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "type": "module",
   "description": "A React component that makes it easy to implement the page transitions from the Codedrops page transitions demo",
   "exports": {
