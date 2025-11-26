@@ -227,6 +227,7 @@ npm run dev:demo-react-router-v6-advanced
 There are also other demos for version support testing:
 
 ```sh
+npm run dev:demo-tabs # uses no routing library
 npm run dev:demo-react-router-v6
 npm run dev:demo-react-router-v5
 npm run dev:demo-reach-router
