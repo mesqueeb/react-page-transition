@@ -41,12 +41,12 @@
     "demo-reach-router-nested"
   ],
   "devDependencies": {
-    "@cycraft/eslint": "^0.4.4",
+    "@cycraft/eslint": "^0.4.6",
     "@types/react-transition-group": "^4.4.12",
-    "bumpp": "^10.1.1",
-    "del-cli": "^6.0.0",
-    "native-copyfiles": "^1.2.1",
-    "tsx": "^4.19.4",
-    "vitest": "^3.2.2"
+    "bumpp": "^12.3.0",
+    "del-cli": "^7.0.0",
+    "native-copyfiles": "^2.0.4",
+    "tsx": "^4.23.13",
+    "vitest": "^5.0.1"
   }
 }
