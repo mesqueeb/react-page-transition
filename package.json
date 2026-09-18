@@ -41,7 +41,7 @@
     "demo-reach-router-nested"
   ],
   "devDependencies": {
-    "@cycraft/eslint": "^0.4.6",
+    "@cycraft/eslint": "^0.4.7",
     "@types/react-transition-group": "^4.4.12",
     "bumpp": "^12.3.0",
     "del-cli": "^7.0.0",
