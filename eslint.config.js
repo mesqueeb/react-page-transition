@@ -1,14 +1,19 @@
-import config from '@cycraft/eslint/config'
+import eslint from '@eslint/js'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import tseslint from 'typescript-eslint'
 
-export default [
+export default tseslint.config(
   {
     ignores: ['**/dist/*'],
   },
-  ...config,
+  eslint.configs.recommended,
+  ...tseslint.configs.strict,
+  ...tseslint.configs.stylistic,
+  eslintConfigPrettier,
   {
-    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     rules: {
-      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/consistent-indexed-object-style': ['error', 'index-signature'],
     },
   },
-]
+)
