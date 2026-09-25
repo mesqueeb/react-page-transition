@@ -27,7 +27,7 @@
     "typecheck": "npm run typecheck -w @mesqueeb/react-page-transition",
     "lint": "npm run lint -w @mesqueeb/react-page-transition",
     "build": "npm run build -w @mesqueeb/react-page-transition",
-    "release": "bumpp package.json */package.json --no-push && npm run release -w @mesqueeb/react-page-transition && git push --follow-tags && gh release create $(git describe --tags --abbrev=0) --generate-notes --notes \"$(git log --pretty='- %s  %h' $(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD~1)\"",
+    "release": "bumpp package.json */package.json --no-push && npm run release -w @mesqueeb/react-page-transition && git push --follow-tags && gh release create $(git describe --tags --abbrev=0) -R mesqueeb/react-page-transition --generate-notes --notes \"$(git log --pretty='- %s  %h' $(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD~1)\"",
     "formatcss": "tsx scripts/formatcss.cli.ts react-page-transition/src/animations.css",
     "test:formatcss": "vitest run"
   },
