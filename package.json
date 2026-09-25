@@ -1,7 +1,7 @@
 {
   "private": true,
   "type": "module",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "Monorepo for development of fork of react-page-transition",
   "author": "Luca Ban - mesqueeb. Original author: Steve Meredith <hello@stevemeredith.com> (http://stevemeredith.com/)",
   "license": "MIT",
@@ -41,12 +41,18 @@
     "demo-reach-router-nested"
   ],
   "devDependencies": {
-    "@cycraft/eslint": "^0.4.11",
+    "@eslint/js": "^9.39.5",
     "@types/react-transition-group": "^4.4.12",
     "bumpp": "^12.3.0",
     "del-cli": "^7.0.0",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
     "native-copyfiles": "^2.0.4",
+    "prettier": "^3.9.9",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "tsx": "^4.23.15",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.70.1",
     "vitest": "^5.0.2"
   }
 }
